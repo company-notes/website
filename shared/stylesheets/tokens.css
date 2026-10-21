@@ -45,3 +45,10 @@
   --dur-normal: 210ms;
   --page-gutter: clamp(1rem, 3.2vw, 3rem);
 }
+
+/* Interactive paper samples. Each option changes the whole site's surface system. */
+:root[data-cn-paper="white"] { --color-paper:oklch(99.6% .002 90); --color-paper-2:oklch(97.1% .003 90); --color-paper-3:oklch(93.5% .005 90); --color-rule:oklch(86% .009 260); }
+:root[data-cn-paper="cream"] { --color-paper:oklch(96.7% .026 87); --color-paper-2:oklch(93.5% .035 86); --color-paper-3:oklch(89.5% .037 85); --color-rule:oklch(82% .025 85); }
+:root[data-cn-paper="mist"] { --color-paper:oklch(96.6% .020 240); --color-paper-2:oklch(92.9% .026 239); --color-paper-3:oklch(89.6% .031 240); --color-rule:oklch(83% .028 244); }
+:root[data-cn-paper="sage"] { --color-paper:oklch(96.7% .019 145); --color-paper-2:oklch(93.2% .027 147); --color-paper-3:oklch(89.4% .035 146); --color-rule:oklch(82% .029 150); }
+:root[data-cn-paper="blush"] { --color-paper:oklch(97.0% .018 16); --color-paper-2:oklch(93.4% .028 16); --color-paper-3:oklch(89.8% .031 15); --color-rule:oklch(83% .022 16); }

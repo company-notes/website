@@ -50,6 +50,12 @@ A push to `main` triggers `.github/workflows/pages.yml`. Look under the **Action
 
 A language dropdown is provided by Material for MkDocs. Our small `site.js` keeps the corresponding article path when changing languages (as long as the localized page exists). Articles published in all three languages share the same `slug`.
 
+**Auto language selection:** GitHub Pages serves static files, so `/` is always the Traditional Chinese HTML for bots and no-JavaScript visitors. A tiny client-side preference check on `/` sends new English-language browsers to `/en/`, Simplified Chinese (`zh-CN`, `zh-SG`) to `/zh-hans/`, and leaves Traditional Chinese on `/`. An explicit switch in MkDocs' language menu saves `company-notes:language` in localStorage and is respected the next time the reader opens the root URL. Direct links to articles and explicitly localized URLs are never redirected. JavaScript-disabled visitors can still use the language menu.
+
+**Try the background palette:** On the homepage, choose between Warm / Paper / Cream / Blue mist / Sage / Blush. The site updates instantly and remembers your selection in localStorage (`company-notes:paper`). The default is `warm` (the existing paper color); once a preferred color is selected, update `DEFAULT_PAPER` in `shared/javascripts/site.js` plus `--color-paper` in `shared/stylesheets/tokens.css` and, if necessary, other surface tokens to make it the new default. Color selections apply across Blog and Toolkit as well.
+
+**Homepage reading carousel:** About the publication, up to three real Blog posts, and the two existing Playbook pages appear in the rotating sidebar. Arrows, dots, keyboard arrows, and swipe work without an external carousel library. Autoplay pauses on hover/focus and is disabled for reduced-motion users. New posts become available as soon as a commit triggers a rebuild.
+
 **Why no i18next / `mkdocs-static-i18n`?** This is a *deliberate* design choice. The Material **Blog** plugin has documented incompatibilities with the static-i18n plugin. Three independent MkDocs builds are boring, robust and SEO-friendly. The homepage is pre-rendered in every language, so no client-side translation is needed. This also means the site is functional with JavaScript disabled.
 
 ## 4. How to publish a new post

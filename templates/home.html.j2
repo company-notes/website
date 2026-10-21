@@ -13,8 +13,46 @@ hide:
       <p class="cn-tagline">{{ tagline }}</p>
     </div>
     <div class="cn-intro-side">
-      <p>{{ intro }}</p>
-      <a class="cn-mini-link" href="about/">{{ about_link }} <span aria-hidden="true">↗</span></a>
+      <div class="cn-carousel" data-cn-carousel aria-roledescription="carousel" aria-label="{{ carousel_label }}">
+        <div class="cn-carousel-header">
+          <span class="cn-carousel-title">{{ carousel_title }}</span>
+          <div class="cn-carousel-arrows">
+            <button type="button" class="cn-carousel-arrow" data-cn-prev aria-label="{{ carousel_prev }}" title="{{ carousel_prev }}">←</button>
+            <button type="button" class="cn-carousel-arrow" data-cn-next aria-label="{{ carousel_next }}" title="{{ carousel_next }}">→</button>
+          </div>
+        </div>
+        <div class="cn-carousel-viewport" data-cn-viewport>
+          <div class="cn-carousel-track" data-cn-track>
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="1 / {{ carousel_items|length + 1 }}">
+              <p class="cn-carousel-kind">{{ carousel_intro_label }}</p>
+              <p class="cn-carousel-description">{{ intro }}</p>
+              <a class="cn-mini-link" href="about/">{{ about_link }} <span aria-hidden="true">↗</span></a>
+            </section>
+            {% for item in carousel_items %}
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="{{ loop.index + 1 }} / {{ carousel_items|length + 1 }}">
+              <p class="cn-carousel-kind">{{ item.kind }}</p>
+              <h2 class="cn-carousel-article-title">{{ item.title }}</h2>
+              <p class="cn-carousel-description">{{ item.excerpt }}</p>
+              <a class="cn-mini-link" href="{{ item.href }}">{{ carousel_read }} <span aria-hidden="true">↗</span></a>
+            </section>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="cn-carousel-dots" role="group" aria-label="{{ carousel_pagination }}">
+          {% for i in range(carousel_items|length + 1) %}
+          <button type="button" class="cn-carousel-dot" data-cn-dot="{{ i }}" aria-label="{{ carousel_page }} {{ i + 1 }}" aria-pressed="{{ 'true' if i == 0 else 'false' }}"></button>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="cn-paper-picker" data-cn-paper-picker aria-label="{{ paper_label }}">
+        <span class="cn-picker-caption">{{ paper_label }}</span>
+        <div class="cn-paper-swatches" role="group" aria-label="{{ paper_label }}">
+          {% for option in paper_options %}
+          <button type="button" class="cn-paper-swatch cn-paper-swatch--{{ option.key }}" data-cn-paper-option="{{ option.key }}" data-cn-paper-name="{{ option.label }}" aria-label="{{ option.label }}" title="{{ option.label }}" aria-pressed="{{ 'true' if option.key == 'warm' else 'false' }}"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
+          {% endfor %}
+        </div>
+        <span class="cn-paper-choice" data-cn-paper-choice aria-live="polite">{{ paper_options[0].label }}</span>
+      </div>
     </div>
   </header>
 

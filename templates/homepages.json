@@ -1,11 +1,239 @@
 {
   "zh-hant": {
-    "lang_attr": "zh-Hant", "rubric": "獨立技術刊物", "issue": "一人公司 × AI 團隊", "tagline": "記錄一個人，如何與 AI 團隊一起經營公司。", "intro": "這裡不是轉貼 AI 新聞的地方。從組織設計到 MCP、權限管理和每天真正發生的工作，把實驗攤開來寫。", "about_link": "關於這個計畫", "browse_label": "瀏覽主題", "topic_featured": "精選", "topic_journal": "實戰日誌", "topic_playbooks": "方法論", "topic_toolkit": "工具箱", "featured_heading": "本期精選", "all_articles": "所有文章", "latest_label": "最新文章", "organization_title": "先替 AI 團隊畫好組織圖", "organization_desc": "Bot 可以做什麼、誰要核准，以及權限應該在哪一層控制。", "organization_alt": "以圖形節點和連線呈現的 AI 組織分工插畫", "operations_title": "建立每天能持續執行的工作節奏", "operations_desc": "例行任務、交接、檢查與失敗後的處理方式。", "operations_alt": "以卡片與時間軸構成的 AI 日常營運插畫", "label_playbook": "方法論", "statement_label": "編者的話", "statement": "問題不只是讓 Bot 會做事，還要讓整家公司知道它做了什麼。", "statement_note": "工作流程、系統整合與責任邊界，才是讓 AI 能在企業裡持續運作的關鍵。", "guides_heading": "從這三件事開始", "guides_subtitle": "不是功能清單，是實際的建置順序。", "label_organization": "組織與授權", "label_operations": "例行工作", "label_systems": "MCP 與系統", "toolkit_title": "讓 Bot 真正接上公司的系統", "toolkit_desc": "Mail、Wekan、Memos、ERPNext、MIS MCP 與 FFL 的整合筆記。", "toolkit_alt": "不同企業系統與 MCP 工具串接的模組化插畫", "journal_heading": "最近發表", "label_fieldnote": "實戰日誌", "journal_note": "還在持續整理中；新文章會依日期自動出現在這裡。", "archive_label": "進入文章封存", "about_eyebrow": "ABOUT THE PUBLICATION", "about_heading": "少一點 AI 神話，多一些可以驗證的工作。", "about_body": "Company Notes 是一份獨立的實作筆記。內容來自真實的公司營運實驗；未驗證的概念不會被當作成功案例。文章以繁體中文寫成，並提供英文和簡體中文版本。", "footer_notice": "獨立出版 · 非 Grok Bot 官方網站", "featured_alt": "Company Notes AI 公司實驗封面插畫"
+    "lang_attr": "zh-Hant",
+    "rubric": "獨立技術刊物",
+    "issue": "一人公司 × AI 團隊",
+    "tagline": "記錄一個人，如何與 AI 團隊一起經營公司。",
+    "intro": "這裡不是轉貼 AI 新聞的地方。從組織設計到 MCP、權限管理和每天真正發生的工作，把實驗攤開來寫。",
+    "about_link": "關於這個計畫",
+    "browse_label": "瀏覽主題",
+    "topic_featured": "精選",
+    "topic_journal": "實戰日誌",
+    "topic_playbooks": "方法論",
+    "topic_toolkit": "工具箱",
+    "featured_heading": "本期精選",
+    "all_articles": "所有文章",
+    "latest_label": "最新文章",
+    "organization_title": "先替 AI 團隊畫好組織圖",
+    "organization_desc": "Bot 可以做什麼、誰要核准，以及權限應該在哪一層控制。",
+    "organization_alt": "以圖形節點和連線呈現的 AI 組織分工插畫",
+    "operations_title": "建立每天能持續執行的工作節奏",
+    "operations_desc": "例行任務、交接、檢查與失敗後的處理方式。",
+    "operations_alt": "以卡片與時間軸構成的 AI 日常營運插畫",
+    "label_playbook": "方法論",
+    "statement_label": "編者的話",
+    "statement": "問題不只是讓 Bot 會做事，還要讓整家公司知道它做了什麼。",
+    "statement_note": "工作流程、系統整合與責任邊界，才是讓 AI 能在企業裡持續運作的關鍵。",
+    "guides_heading": "從這三件事開始",
+    "guides_subtitle": "不是功能清單，是實際的建置順序。",
+    "label_organization": "組織與授權",
+    "label_operations": "例行工作",
+    "label_systems": "MCP 與系統",
+    "toolkit_title": "讓 Bot 真正接上公司的系統",
+    "toolkit_desc": "Mail、Wekan、Memos、ERPNext、MIS MCP 與 FFL 的整合筆記。",
+    "toolkit_alt": "不同企業系統與 MCP 工具串接的模組化插畫",
+    "journal_heading": "最近發表",
+    "label_fieldnote": "實戰日誌",
+    "journal_note": "還在持續整理中；新文章會依日期自動出現在這裡。",
+    "archive_label": "進入文章封存",
+    "about_eyebrow": "ABOUT THE PUBLICATION",
+    "about_heading": "少一點 AI 神話，多一些可以驗證的工作。",
+    "about_body": "Company Notes 是一份獨立的實作筆記。內容來自真實的公司營運實驗；未驗證的概念不會被當作成功案例。文章以繁體中文寫成，並提供英文和簡體中文版本。",
+    "footer_notice": "獨立出版 · 非 Grok Bot 官方網站",
+    "featured_alt": "Company Notes AI 公司實驗封面插畫",
+    "carousel_label": "首頁導覽與精選閱讀",
+    "carousel_title": "值得一讀",
+    "carousel_prev": "上一則",
+    "carousel_next": "下一則",
+    "carousel_intro_label": "本站介紹",
+    "carousel_read": "閱讀內容",
+    "carousel_pagination": "選擇輪播內容",
+    "carousel_page": "第",
+    "paper_label": "試試底色",
+    "carousel_post_label": "精選文章",
+    "paper_options": [
+      {
+        "key": "warm",
+        "label": "暖白"
+      },
+      {
+        "key": "white",
+        "label": "紙白"
+      },
+      {
+        "key": "cream",
+        "label": "奶油"
+      },
+      {
+        "key": "mist",
+        "label": "霧藍"
+      },
+      {
+        "key": "sage",
+        "label": "淺綠"
+      },
+      {
+        "key": "blush",
+        "label": "霧粉"
+      }
+    ]
   },
   "en": {
-    "lang_attr": "en", "rubric": "Independent field journal", "issue": "One person × an AI team", "tagline": "Field notes on running a company with an AI team.", "intro": "No recycled AI headlines. Just the real work: roles, permissions, MCP integrations, daily routines, and everything that goes wrong in between.", "about_link": "About this project", "browse_label": "Browse the publication", "topic_featured": "Featured", "topic_journal": "Field notes", "topic_playbooks": "Playbooks", "topic_toolkit": "Toolkit", "featured_heading": "On the cover", "all_articles": "All articles", "latest_label": "Latest story", "organization_title": "Design the org chart before hiring a Bot", "organization_desc": "What agents can do, what needs approval, and where permissions belong.", "organization_alt": "Graphic nodes and connecting lines representing an AI organization", "operations_title": "A daily operating rhythm that survives mistakes", "operations_desc": "Recurring tasks, handoffs, reviews, and handling exceptions.", "operations_alt": "Illustration of operational cards and a daily timeline", "label_playbook": "Playbook", "statement_label": "Editor's note", "statement": "It is not enough for a Bot to do the work. The company needs to know what happened.", "statement_note": "Repeatable workflows, system integrations, and clear boundaries are what make AI useful beyond the demo.", "guides_heading": "Three places to begin", "guides_subtitle": "An implementation order, not a feature list.", "label_organization": "Roles & access", "label_operations": "Daily operations", "label_systems": "MCP & systems", "toolkit_title": "Connect Bots to real company systems", "toolkit_desc": "Field references for Mail, Wekan, Memos, ERPNext, MIS MCP, and FFL.", "toolkit_alt": "Modular illustration connecting enterprise systems through MCP tools", "journal_heading": "Latest field notes", "label_fieldnote": "Field note", "journal_note": "The archive is growing. New Markdown posts appear here automatically.", "archive_label": "Browse the archive", "about_eyebrow": "ABOUT THE PUBLICATION", "about_heading": "Less AI mythology. More work you can verify.", "about_body": "Company Notes is an independent record of operating a real company with AI. Unverified ideas are described as ideas, not as success stories. Written first in Traditional Chinese, with English and Simplified Chinese translations.", "footer_notice": "Independent publication · Not affiliated with Grok Bot", "featured_alt": "Original illustration for the Company Notes field journal"
+    "lang_attr": "en",
+    "rubric": "Independent field journal",
+    "issue": "One person × an AI team",
+    "tagline": "Field notes on running a company with an AI team.",
+    "intro": "No recycled AI headlines. Just the real work: roles, permissions, MCP integrations, daily routines, and everything that goes wrong in between.",
+    "about_link": "About this project",
+    "browse_label": "Browse the publication",
+    "topic_featured": "Featured",
+    "topic_journal": "Field notes",
+    "topic_playbooks": "Playbooks",
+    "topic_toolkit": "Toolkit",
+    "featured_heading": "On the cover",
+    "all_articles": "All articles",
+    "latest_label": "Latest story",
+    "organization_title": "Design the org chart before hiring a Bot",
+    "organization_desc": "What agents can do, what needs approval, and where permissions belong.",
+    "organization_alt": "Graphic nodes and connecting lines representing an AI organization",
+    "operations_title": "A daily operating rhythm that survives mistakes",
+    "operations_desc": "Recurring tasks, handoffs, reviews, and handling exceptions.",
+    "operations_alt": "Illustration of operational cards and a daily timeline",
+    "label_playbook": "Playbook",
+    "statement_label": "Editor's note",
+    "statement": "It is not enough for a Bot to do the work. The company needs to know what happened.",
+    "statement_note": "Repeatable workflows, system integrations, and clear boundaries are what make AI useful beyond the demo.",
+    "guides_heading": "Three places to begin",
+    "guides_subtitle": "An implementation order, not a feature list.",
+    "label_organization": "Roles & access",
+    "label_operations": "Daily operations",
+    "label_systems": "MCP & systems",
+    "toolkit_title": "Connect Bots to real company systems",
+    "toolkit_desc": "Field references for Mail, Wekan, Memos, ERPNext, MIS MCP, and FFL.",
+    "toolkit_alt": "Modular illustration connecting enterprise systems through MCP tools",
+    "journal_heading": "Latest field notes",
+    "label_fieldnote": "Field note",
+    "journal_note": "The archive is growing. New Markdown posts appear here automatically.",
+    "archive_label": "Browse the archive",
+    "about_eyebrow": "ABOUT THE PUBLICATION",
+    "about_heading": "Less AI mythology. More work you can verify.",
+    "about_body": "Company Notes is an independent record of operating a real company with AI. Unverified ideas are described as ideas, not as success stories. Written first in Traditional Chinese, with English and Simplified Chinese translations.",
+    "footer_notice": "Independent publication · Not affiliated with Grok Bot",
+    "featured_alt": "Original illustration for the Company Notes field journal",
+    "carousel_label": "Introduction and selected reading",
+    "carousel_title": "Start here",
+    "carousel_prev": "Previous story",
+    "carousel_next": "Next story",
+    "carousel_intro_label": "About the project",
+    "carousel_read": "Read the story",
+    "carousel_pagination": "Choose a story",
+    "carousel_page": "Slide",
+    "paper_label": "Try a paper color",
+    "carousel_post_label": "Featured article",
+    "paper_options": [
+      {
+        "key": "warm",
+        "label": "Warm"
+      },
+      {
+        "key": "white",
+        "label": "Paper"
+      },
+      {
+        "key": "cream",
+        "label": "Cream"
+      },
+      {
+        "key": "mist",
+        "label": "Blue mist"
+      },
+      {
+        "key": "sage",
+        "label": "Sage"
+      },
+      {
+        "key": "blush",
+        "label": "Blush"
+      }
+    ]
   },
   "zh-hans": {
-    "lang_attr": "zh-Hans", "rubric": "独立技术刊物", "issue": "一人公司 × AI 团队", "tagline": "记录一个人，如何与 AI 团队一起经营公司。", "intro": "这里不转载 AI 新闻。从组织设计到 MCP、权限管理与每天发生的实际工作，把实验过程公开记录。", "about_link": "关于这个项目", "browse_label": "浏览主题", "topic_featured": "精选", "topic_journal": "实战日志", "topic_playbooks": "方法论", "topic_toolkit": "工具箱", "featured_heading": "本期精选", "all_articles": "所有文章", "latest_label": "最新文章", "organization_title": "先为 AI 团队画好组织架构", "organization_desc": "Bot 可以做什么、哪些操作需要批准，以及权限在哪一层控制。", "organization_alt": "以图形节点和连线呈现的 AI 组织分工插画", "operations_title": "建立每天能够持续运行的工作节奏", "operations_desc": "例行任务、交接、检查与失败之后的处理方式。", "operations_alt": "以卡片和时间轴构成的 AI 日常运营插画", "label_playbook": "方法论", "statement_label": "编者的话", "statement": "问题不只是让 Bot 会做事，还要让整家公司知道它做了什么。", "statement_note": "工作流程、系统集成与责任边界，才是让 AI 能在企业里持续运行的关键。", "guides_heading": "从这三件事开始", "guides_subtitle": "不是功能列表，而是实际的建设顺序。", "label_organization": "组织与授权", "label_operations": "例行工作", "label_systems": "MCP 与系统", "toolkit_title": "让 Bot 真正接上公司的系统", "toolkit_desc": "Mail、Wekan、Memos、ERPNext、MIS MCP 与 FFL 的集成笔记。", "toolkit_alt": "不同企业系统与 MCP 工具连接的模块化插画", "journal_heading": "最近发表", "label_fieldnote": "实战日志", "journal_note": "仍在持续整理；新文章将按日期自动出现在这里。", "archive_label": "查看文章归档", "about_eyebrow": "ABOUT THE PUBLICATION", "about_heading": "少一些 AI 神话，多一些可以验证的工作。", "about_body": "Company Notes 是一份独立的实践笔记。内容来自真实的公司运营实验，未经验证的概念不会被当作成功案例。文章以繁体中文写成，并提供英文和简体中文版本。", "footer_notice": "独立出版 · 非 Grok Bot 官方网站", "featured_alt": "Company Notes AI 公司实验封面插画"
+    "lang_attr": "zh-Hans",
+    "rubric": "独立技术刊物",
+    "issue": "一人公司 × AI 团队",
+    "tagline": "记录一个人，如何与 AI 团队一起经营公司。",
+    "intro": "这里不转载 AI 新闻。从组织设计到 MCP、权限管理与每天发生的实际工作，把实验过程公开记录。",
+    "about_link": "关于这个项目",
+    "browse_label": "浏览主题",
+    "topic_featured": "精选",
+    "topic_journal": "实战日志",
+    "topic_playbooks": "方法论",
+    "topic_toolkit": "工具箱",
+    "featured_heading": "本期精选",
+    "all_articles": "所有文章",
+    "latest_label": "最新文章",
+    "organization_title": "先为 AI 团队画好组织架构",
+    "organization_desc": "Bot 可以做什么、哪些操作需要批准，以及权限在哪一层控制。",
+    "organization_alt": "以图形节点和连线呈现的 AI 组织分工插画",
+    "operations_title": "建立每天能够持续运行的工作节奏",
+    "operations_desc": "例行任务、交接、检查与失败之后的处理方式。",
+    "operations_alt": "以卡片和时间轴构成的 AI 日常运营插画",
+    "label_playbook": "方法论",
+    "statement_label": "编者的话",
+    "statement": "问题不只是让 Bot 会做事，还要让整家公司知道它做了什么。",
+    "statement_note": "工作流程、系统集成与责任边界，才是让 AI 能在企业里持续运行的关键。",
+    "guides_heading": "从这三件事开始",
+    "guides_subtitle": "不是功能列表，而是实际的建设顺序。",
+    "label_organization": "组织与授权",
+    "label_operations": "例行工作",
+    "label_systems": "MCP 与系统",
+    "toolkit_title": "让 Bot 真正接上公司的系统",
+    "toolkit_desc": "Mail、Wekan、Memos、ERPNext、MIS MCP 与 FFL 的集成笔记。",
+    "toolkit_alt": "不同企业系统与 MCP 工具连接的模块化插画",
+    "journal_heading": "最近发表",
+    "label_fieldnote": "实战日志",
+    "journal_note": "仍在持续整理；新文章将按日期自动出现在这里。",
+    "archive_label": "查看文章归档",
+    "about_eyebrow": "ABOUT THE PUBLICATION",
+    "about_heading": "少一些 AI 神话，多一些可以验证的工作。",
+    "about_body": "Company Notes 是一份独立的实践笔记。内容来自真实的公司运营实验，未经验证的概念不会被当作成功案例。文章以繁体中文写成，并提供英文和简体中文版本。",
+    "footer_notice": "独立出版 · 非 Grok Bot 官方网站",
+    "featured_alt": "Company Notes AI 公司实验封面插画",
+    "carousel_label": "首页介绍与精选阅读",
+    "carousel_title": "值得一读",
+    "carousel_prev": "上一则",
+    "carousel_next": "下一则",
+    "carousel_intro_label": "本站介绍",
+    "carousel_read": "阅读内容",
+    "carousel_pagination": "选择轮播内容",
+    "carousel_page": "第",
+    "paper_label": "试试底色",
+    "carousel_post_label": "精选文章",
+    "paper_options": [
+      {
+        "key": "warm",
+        "label": "暖白"
+      },
+      {
+        "key": "white",
+        "label": "纸白"
+      },
+      {
+        "key": "cream",
+        "label": "奶油"
+      },
+      {
+        "key": "mist",
+        "label": "雾蓝"
+      },
+      {
+        "key": "sage",
+        "label": "浅绿"
+      },
+      {
+        "key": "blush",
+        "label": "雾粉"
+      }
+    ]
   }
 }

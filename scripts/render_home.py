@@ -49,7 +49,13 @@ def render_homepages():
         posts=translated_posts(locale)
         if not posts:
             raise ValueError(f'No published blog posts in {locale}; add at least one before publishing.')
-        page=tpl.render(**copy[locale],featured=posts[0],posts=posts[:6])
+        info=copy[locale]
+        carousel_items=[dict(kind=info['carousel_post_label'],title=p['title'],excerpt=p['excerpt'],href=p['href']) for p in posts[:3]]
+        carousel_items += [
+            dict(kind=info['label_playbook'],title=info['organization_title'],excerpt=info['organization_desc'],href='playbooks/organization/'),
+            dict(kind=info['label_playbook'],title=info['operations_title'],excerpt=info['operations_desc'],href='playbooks/daily-operations/'),
+        ]
+        page=tpl.render(**info,featured=posts[0],posts=posts[:6],carousel_items=carousel_items)
         (ROOT/'content'/locale/'index.md').write_text(page.rstrip()+'\n',encoding='utf-8')
         print(f'Rendered {locale} magazine homepage with {len(posts[:6])} article(s)')
 

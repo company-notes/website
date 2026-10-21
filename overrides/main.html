@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% block extrahead %}
   {{ super() }}
+  <script>
+    (function () {
+      /* Bootstrap preferences before first paint; no dependency on a CMS or CDN. */
+      var colors = {warm:1,white:1,cream:1,mist:1,sage:1,blush:1};
+      var selected = null;
+      try { selected = localStorage.getItem('company-notes:paper'); } catch (_) {}
+      if (colors[selected]) document.documentElement.dataset.cnPaper = selected;
+      if (location.pathname !== '/') return;
+      var manual = null;
+      try { manual = localStorage.getItem('company-notes:language'); } catch (_) {}
+      var lang = manual;
+      if (!['zh-hant','en','zh-hans'].includes(lang)) {
+        var languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+        var primary = String(languages[0] || '').toLowerCase();
+        if (primary === 'zh-cn' || primary === 'zh-sg' || primary.startsWith('zh-hans')) lang = 'zh-hans';
+        else if (primary.startsWith('zh')) lang = 'zh-hant';
+        else lang = 'en';
+      }
+      if (lang === 'en' || lang === 'zh-hans') {
+        location.replace('/' + lang + '/' + location.search + location.hash);
+      }
+    })();
+  </script>
   {% if page %}
     {% set route = page.url.lstrip('/') %}
     <link rel="alternate" hreflang="zh-Hant" href="https://company-notes.com/{{ route }}">
