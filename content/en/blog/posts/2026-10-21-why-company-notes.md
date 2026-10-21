@@ -1,9 +1,13 @@
 ---
-title: "Why Company Notes?"
+title: Why Company Notes?
 date: 2026-10-21
 slug: why-company-notes
 categories:
-  - Field Notes
+- Field Notes
+description: Why document a real company operated by a person and AI agents, and what
+  belongs in these field notes.
+cover: assets/covers/field-notes.svg
+cover_alt: 'Company Notes: humans and AI agents connected by working systems'
 ---
 
 # Why Company Notes?

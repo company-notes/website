@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="AI company organization chart illustration">
+<rect width="1200" height="720" fill="#EE6D4E"/>
+<path d="M1000-90 1300 210M-30 580 190 800" stroke="#C94938" stroke-width="150"/>
+<g fill="none" stroke="#3B302C" stroke-width="10" stroke-linejoin="round"><path d="M606 210v105H285v70M606 315h320v70M606 315v70"/></g>
+<g font-family="Arial,Helvetica,sans-serif" font-weight="900" text-anchor="middle">
+<rect x="450" y="100" width="312" height="145" rx="12" fill="#F7D77A" stroke="#3B302C" stroke-width="9"/><text x="606" y="164" font-size="35" fill="#3B302C">HUMAN</text><text x="606" y="207" font-size="28" fill="#3B302C">IN CHARGE</text>
+<rect x="128" y="380" width="315" height="165" rx="12" fill="#C9E8DA" stroke="#3B302C" stroke-width="9"/><text x="285" y="447" font-size="41" fill="#3B302C">ROLES</text><text x="285" y="495" font-size="25" fill="#3B302C">scope of work</text>
+<rect x="452" y="380" width="310" height="165" rx="12" fill="#32363D" stroke="#3B302C" stroke-width="9"/><text x="607" y="447" font-size="39" fill="#FFF7E4">TOOLS</text><text x="607" y="495" font-size="25" fill="#FFF7E4">approved only</text>
+<rect x="774" y="380" width="300" height="165" rx="12" fill="#C7C5F1" stroke="#3B302C" stroke-width="9"/><text x="924" y="447" font-size="38" fill="#3B302C">REVIEWS</text><text x="924" y="495" font-size="23" fill="#3B302C">human checkpoints</text>
+<text x="600" y="647" font-size="40" letter-spacing="3" fill="#3B302C">WHO DOES WHAT?</text>
+</g>
+</svg>

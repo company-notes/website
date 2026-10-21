@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="Daily AI operations workflow illustration">
+<rect width="1200" height="720" fill="#D0CBFA"/>
+<g transform="rotate(-7 580 370)"><rect x="143" y="83" width="915" height="550" rx="14" fill="#F6F2E8" stroke="#322A70" stroke-width="10"/><path d="M143 196h915" stroke="#322A70" stroke-width="10"/>
+<rect x="186" y="119" width="80" height="43" rx="8" fill="#4F3FBB"/><rect x="286" y="119" width="80" height="43" rx="8" fill="#4F3FBB"/><rect x="386" y="119" width="80" height="43" rx="8" fill="#4F3FBB"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#322A70" font-weight="900"><text x="520" y="162" font-size="46">THE DAILY LOOP</text><text x="195" y="278" font-size="31">MORNING</text><text x="195" y="422" font-size="31">WORK</text><text x="195" y="565" font-size="31">REVIEW</text></g>
+<path d="M395 263H990M395 410H990M395 552H990" stroke="#322A70" stroke-width="4" stroke-dasharray="16 12" opacity=".25"/>
+<g stroke="#322A70" stroke-width="7"><rect x="422" y="230" width="170" height="70" rx="11" fill="#F4D364"/><rect x="653" y="230" width="170" height="70" rx="11" fill="#D08BDF"/><rect x="441" y="375" width="232" height="75" rx="11" fill="#62CEAC"/><rect x="739" y="375" width="216" height="75" rx="11" fill="#F28773"/><rect x="423" y="516" width="532" height="67" rx="11" fill="#F4D364"/></g>
+<g fill="none" stroke="#322A70" stroke-width="8" stroke-linecap="round"><path d="m483 264 17 16 29-30M714 250v33m-17-17h34M500 404h100M815 405h70M515 552h350"/></g></g>
+<circle cx="1020" cy="105" r="62" fill="#F7B477" stroke="#322A70" stroke-width="9"/><path d="M1020 69v37l20 22" stroke="#322A70" stroke-width="9" fill="none" stroke-linecap="round"/>
+</svg>

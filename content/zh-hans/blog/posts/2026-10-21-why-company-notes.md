@@ -1,9 +1,12 @@
 ---
-title: "为什么建立 Company Notes？"
+title: 为什么建立 Company Notes？
 date: 2026-10-21
 slug: why-company-notes
 categories:
-  - Field Notes
+- Field Notes
+description: 为什么公开记录一家由人与 AI 协作运营的公司，以及这份刊物准备分享什么。
+cover: assets/covers/field-notes.svg
+cover_alt: 'Company Notes: humans and AI agents connected by working systems'
 ---
 
 # 为什么建立 Company Notes？

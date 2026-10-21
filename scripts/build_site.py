@@ -12,6 +12,7 @@ import shutil
 import subprocess
 import sys
 import yaml
+from render_home import render_homepages
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCALES = {
@@ -28,14 +29,17 @@ def prepare_assets():
         for subdir in ('stylesheets', 'javascripts', 'assets'):
             dest = ROOT / 'content' / locale / subdir
             dest.mkdir(parents=True, exist_ok=True)
-            for path in (src / subdir).glob('*'):
+            for path in (src / subdir).rglob('*'):
                 if path.is_file():
-                    shutil.copy2(path, dest / path.name)
+                    target = dest / path.relative_to(src / subdir)
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(path, target)
 
 
 def build():
     from check_content import validate
     validate()
+    render_homepages()
     prepare_assets()
     base = yaml.safe_load((ROOT / 'mkdocs.yml').read_text(encoding='utf-8'))
     site_dir = ROOT / 'site'
@@ -79,6 +83,7 @@ if __name__ == '__main__':
                 assert (ROOT / 'content' / locale / path).is_file(), f'Missing {locale}/{path}'
         print('All 3 locale trees passed basic checks.')
     elif args.prepare_only:
+        render_homepages()
         prepare_assets()
         print('Assets prepared. Run: python -m mkdocs serve')
     else:

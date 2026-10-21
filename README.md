@@ -157,3 +157,42 @@ The demo launch post is intended as a starter and can be replaced before going l
 - Articles are **not** automatically machine translated. You supply/edit the three Markdown translations; the workflow publishes them.
 - Build dependencies use compatible version ranges. Consider pinning exact versions after the first successful build.
 - This project does **not** deploy until you push it to your own repository and complete GitHub Pages / DNS setup.
+
+
+## Design system (Hallmark)
+
+This site uses an **Index-First / Newsprint** editorial design based on the [Hallmark](https://github.com/nutlope/hallmark) design skill. The shared design contract is in [`design.md`](design.md) and the CSS tokens are in [`shared/stylesheets/tokens.css`](shared/stylesheets/tokens.css).
+
+- Homepages are kept in the three corresponding `content/<locale>/index.md` files.
+- Shared presentation is in `shared/stylesheets/site.css` and `shared/stylesheets/tokens.css`. The build script automatically copies both into each locale.
+- New posts still live in `content/<locale>/blog/posts/*.md` with the same slug in all translations. No JS translation at runtime.
+- Never fabricate published articles, support claims, metrics or client stories for aesthetic effect.
+
+## 2026 illustrated magazine update
+
+The homepage follows an illustrated, **content-first editorial magazine** layout. No AI-generated filler articles are added to make a grid look full. The homepage has one featured story, supporting Playbooks, a Toolkit entry and a dynamically generated recent-writing section.
+
+**To publish a post:** Add the same filename/date/slug under all three locale folders `content/zh-hant/blog/posts/`, `content/en/blog/posts/` and `content/zh-hans/blog/posts/`. For the homepage preview, add optional metadata:
+
+```yaml
+---
+title: 如何讓 Bot 使用企業系統
+date: 2026-11-02
+slug: mcp-and-business-systems
+categories: [Field Notes]
+description: 規劃 MCP 工具與權限邊界時應注意的問題。
+cover: assets/covers/integrations.svg
+cover_alt: MCP enterprise systems diagram illustration
+---
+```
+
+Push to `main`: GitHub Actions will automatically validate translations, render the newest article teasers onto each localized homepage, copy the cover assets and build all three MkDocs Material sites.
+
+- `templates/home.html.j2`: Homepage semantic HTML and layout (all languages)
+- `templates/homepages.json`: Localized interface copy
+- `scripts/render_home.py`: Blog-index / frontmatter-to-homepage compiler
+- `shared/assets/covers/`: Original editable SVG cover illustrations
+- `shared/stylesheets/tokens.css`: Shared design tokens
+- `design.md`: Design system and editorial policy
+
+The `content/<locale>/index.md` files are **generated** on each build from the template. To edit the homepage, change the files in `templates/`, not `content/<locale>/index.md`. A `cover:` URL must refer to a local SVG in the shared covers folder.

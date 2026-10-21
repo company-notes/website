@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="Company Notes — a person connecting an AI team">
+<rect width="1200" height="720" fill="#77D1BC"/>
+<path d="M0 585C160 450 270 710 445 610S785 480 1200 615V720H0Z" fill="#46BBA5"/>
+<g fill="none" stroke="#1C4F4D" stroke-width="3" opacity=".35"><path d="M52 82H1148M52 640H1148"/><path d="M85 46V676M1115 46V676"/></g>
+<g transform="translate(590 95)">
+<path d="M175 215L350 140M175 215L379 330M175 215L107 403" stroke="#204D49" stroke-width="8" stroke-dasharray="13 15"/>
+<circle cx="175" cy="215" r="127" fill="#F4EDCE" stroke="#204D49" stroke-width="10"/>
+<path d="M110 287c0-78 133-78 133 0v12H110Z" fill="#204D49"/><circle cx="175" cy="187" r="48" fill="#E89D76"/><path d="M127 182c3-67 96-74 100 2-31-13-57-26-100-2" fill="#204D49"/>
+<circle cx="351" cy="140" r="58" fill="#E95C3A" stroke="#204D49" stroke-width="8"/><path d="M331 138h41m-21-21v42" stroke="#FFE3A1" stroke-width="10" stroke-linecap="round"/>
+<circle cx="379" cy="330" r="53" fill="#204D49" stroke="#204D49" stroke-width="8"/><circle cx="362" cy="320" r="7" fill="#80E8CA"/><circle cx="397" cy="320" r="7" fill="#80E8CA"/><path d="M362 346h35" stroke="#80E8CA" stroke-width="7" stroke-linecap="round"/>
+<circle cx="107" cy="403" r="50" fill="#EBD375" stroke="#204D49" stroke-width="8"/><rect x="84" y="382" width="46" height="38" rx="5" fill="#204D49"/><path d="M95 395h25m-25 9h15" stroke="#EBD375" stroke-width="5"/>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" font-weight="900" fill="#183F3D"><text x="72" y="150" font-size="42" letter-spacing="-1">A COMPANY,</text><text x="72" y="210" font-size="64" letter-spacing="-3">NOT JUST</text><text x="72" y="275" font-size="64" letter-spacing="-3">A CHAT.</text><text x="75" y="614" font-size="26" letter-spacing="4">FIELD NOTES ON AI OPERATIONS</text></g>
+<circle cx="1130" cy="70" r="21" fill="#F1E6A4"/>
+</svg>

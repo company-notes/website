@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-10-21",
+    "macrostructure": "Ecosystem Index",
+    "theme": "Editorial Magazine",
+    "enrichment": "four original SVG editorial covers",
+    "brief": "Rework Company Notes as an illustrated, content-first technology publication referencing Help Scout Blog and Pando Blog"
+  },
+  {
+    "date": "2026-10-21",
     "macrostructure": "Index-First",
     "theme": "Newsprint",
     "genre": "editorial",

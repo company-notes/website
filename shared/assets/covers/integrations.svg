@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="MCP integration pathways between systems">
+<rect width="1200" height="720" fill="#9DBCF5"/>
+<g fill="none" stroke="#193E70" stroke-width="10" stroke-linecap="round"><path d="M305 235h180v140h220v-145h170M315 490h200v-110h160v120h215"/><circle cx="485" cy="375" r="15" fill="#F9ECBA"/><circle cx="675" cy="375" r="15" fill="#F9ECBA"/></g>
+<g font-family="Arial,Helvetica,sans-serif" font-weight="900" text-anchor="middle">
+<rect x="76" y="140" width="315" height="185" rx="16" fill="#F8EBB7" stroke="#193E70" stroke-width="11"/><text x="234" y="211" fill="#193E70" font-size="47">MAIL</text><path d="M156 248h155l-78 42z" fill="none" stroke="#193E70" stroke-width="9"/>
+<rect x="790" y="140" width="315" height="185" rx="16" fill="#F77B63" stroke="#193E70" stroke-width="11"/><text x="947" y="212" fill="#193E70" font-size="43">ERP</text><path d="M864 252h165m-165 26h115" stroke="#193E70" stroke-width="9"/>
+<rect x="76" y="432" width="315" height="185" rx="16" fill="#C3E8CE" stroke="#193E70" stroke-width="11"/><text x="234" y="502" fill="#193E70" font-size="48">TASKS</text><path d="m157 544 16 16 29-31m22 21h87" stroke="#193E70" fill="none" stroke-width="8"/>
+<rect x="790" y="432" width="315" height="185" rx="16" fill="#E8C7F6" stroke="#193E70" stroke-width="11"/><text x="947" y="507" fill="#193E70" font-size="47">NOTES</text><path d="M863 540h166m-166 27h110" stroke="#193E70" stroke-width="9"/>
+<circle cx="592" cy="360" r="125" fill="#193E70" stroke="#F8EBB7" stroke-width="13"/><text x="592" y="379" fill="#F8EBB7" font-size="69">MCP</text>
+</g>
+</svg>

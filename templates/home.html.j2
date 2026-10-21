@@ -1,0 +1,115 @@
+---
+title: Company Notes
+description: {{ tagline }}
+hide:
+  - navigation
+  - toc
+---
+<div class="cn-magazine" lang="{{ lang_attr }}">
+  <header class="cn-intro" aria-label="Company Notes introduction">
+    <div class="cn-intro-text">
+      <p class="cn-issue">{{ rubric }} <span class="cn-dot" aria-hidden="true"></span> {{ issue }}</p>
+      <h1>Company <span>Notes<span class="cn-fullstop">.</span></span></h1>
+      <p class="cn-tagline">{{ tagline }}</p>
+    </div>
+    <div class="cn-intro-side">
+      <p>{{ intro }}</p>
+      <a class="cn-mini-link" href="about/">{{ about_link }} <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <nav class="cn-topics" aria-label="{{ browse_label }}">
+    <a class="cn-topic is-current" href="#featured">{{ topic_featured }}</a>
+    <a class="cn-topic" href="#journal">{{ topic_journal }}</a>
+    <a class="cn-topic" href="#guides">{{ topic_playbooks }}</a>
+    <a class="cn-topic" href="toolkit/">{{ topic_toolkit }} <span aria-hidden="true">↗</span></a>
+  </nav>
+
+  <section id="featured" class="cn-featured" aria-labelledby="featured-heading">
+    <div class="cn-section-heading">
+      <h2 id="featured-heading">{{ featured_heading }}</h2>
+      <a href="blog/" class="cn-section-link">{{ all_articles }} <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="cn-feature-grid">
+      <article class="cn-feature-main">
+        <a class="cn-cover cn-cover-lead" href="{{ featured.href }}" aria-label="{{ featured.title }}">
+          <img src="{{ featured.image }}" width="1200" height="720" alt="{{ featured.image_alt }}" fetchpriority="high">
+        </a>
+        <div class="cn-card-meta"><span>{{ latest_label }}</span><time datetime="{{ featured.date_iso }}">{{ featured.date_display }}</time></div>
+        <h3><a href="{{ featured.href }}">{{ featured.title }}</a></h3>
+        <p>{{ featured.excerpt }}</p>
+      </article>
+      <div class="cn-feature-rail">
+        <article class="cn-feature-small">
+          <a class="cn-cover" href="playbooks/organization/" aria-label="{{ organization_title }}"><img src="assets/covers/organization.svg" width="1200" height="720" alt="{{ organization_alt }}" loading="lazy"></a>
+          <div><div class="cn-card-meta"><span>{{ label_playbook }}</span></div><h3><a href="playbooks/organization/">{{ organization_title }}</a></h3><p>{{ organization_desc }}</p></div>
+        </article>
+        <article class="cn-feature-small">
+          <a class="cn-cover" href="playbooks/daily-operations/" aria-label="{{ operations_title }}"><img src="assets/covers/operations.svg" width="1200" height="720" alt="{{ operations_alt }}" loading="lazy"></a>
+          <div><div class="cn-card-meta"><span>{{ label_playbook }}</span></div><h3><a href="playbooks/daily-operations/">{{ operations_title }}</a></h3><p>{{ operations_desc }}</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cn-in-between" aria-label="{{ statement_label }}">
+    <p class="cn-in-between-quote">{{ statement }}</p>
+    <p class="cn-in-between-note">{{ statement_note }}</p>
+  </section>
+
+  <section class="cn-guides" id="guides" aria-labelledby="guides-heading">
+    <div class="cn-section-heading">
+      <h2 id="guides-heading">{{ guides_heading }}</h2>
+      <span class="cn-section-aside">{{ guides_subtitle }}</span>
+    </div>
+    <div class="cn-guide-grid">
+      <article class="cn-guide-card">
+        <a class="cn-cover" href="playbooks/organization/" aria-label="{{ organization_title }}"><img src="assets/covers/organization.svg" width="1200" height="720" alt="{{ organization_alt }}" loading="lazy"></a>
+        <div class="cn-card-meta"><span>{{ label_organization }}</span></div>
+        <h3><a href="playbooks/organization/">{{ organization_title }}</a></h3>
+        <p>{{ organization_desc }}</p>
+      </article>
+      <article class="cn-guide-card">
+        <a class="cn-cover" href="playbooks/daily-operations/" aria-label="{{ operations_title }}"><img src="assets/covers/operations.svg" width="1200" height="720" alt="{{ operations_alt }}" loading="lazy"></a>
+        <div class="cn-card-meta"><span>{{ label_operations }}</span></div>
+        <h3><a href="playbooks/daily-operations/">{{ operations_title }}</a></h3>
+        <p>{{ operations_desc }}</p>
+      </article>
+      <article class="cn-guide-card">
+        <a class="cn-cover" href="toolkit/" aria-label="{{ toolkit_title }}"><img src="assets/covers/integrations.svg" width="1200" height="720" alt="{{ toolkit_alt }}" loading="lazy"></a>
+        <div class="cn-card-meta"><span>{{ label_systems }}</span></div>
+        <h3><a href="toolkit/">{{ toolkit_title }}</a></h3>
+        <p>{{ toolkit_desc }}</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="journal" class="cn-journal" aria-labelledby="journal-heading">
+    <div class="cn-section-heading">
+      <h2 id="journal-heading">{{ journal_heading }}</h2>
+      <a href="blog/" class="cn-section-link">{{ all_articles }} <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="cn-journal-grid">
+      {% for post in posts %}
+      <article class="cn-journal-entry">
+        <a class="cn-cover" href="{{ post.href }}" aria-label="{{ post.title }}"><img src="{{ post.image }}" width="1200" height="720" alt="{{ post.image_alt }}" loading="lazy"></a>
+        <div class="cn-card-meta"><time datetime="{{ post.date_iso }}">{{ post.date_display }}</time><span>{{ label_fieldnote }}</span></div>
+        <h3><a href="{{ post.href }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="cn-journal-footnote">{{ journal_note }} <a href="blog/">{{ archive_label }} →</a></p>
+  </section>
+
+  <section class="cn-about-band" aria-labelledby="about-band-heading">
+    <div class="cn-about-mark" aria-hidden="true"><span>CN</span><i></i><i></i><i></i></div>
+    <div class="cn-about-copy">
+      <p class="cn-small-label">{{ about_eyebrow }}</p>
+      <h2 id="about-band-heading">{{ about_heading }}</h2>
+      <p>{{ about_body }}</p>
+      <div class="cn-about-actions"><a href="about/">{{ about_link }} ↗</a><a href="https://github.com/company-notes" rel="noopener noreferrer">GitHub ↗</a></div>
+    </div>
+  </section>
+  <footer class="cn-note-footer"><strong>Company Notes</strong><span>{{ footer_notice }}</span><span>© 2026</span></footer>
+</div>
