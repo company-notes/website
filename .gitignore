@@ -1,0 +1,9 @@
+site/
+.venv/
+__pycache__/
+*.pyc
+.mkdocs.*.generated.yml
+content/*/stylesheets/
+content/*/javascripts/
+content/*/assets/
+.DS_Store
