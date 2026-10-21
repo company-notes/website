@@ -1,0 +1,12 @@
+[
+  {
+    "date": "2026-10-21",
+    "macrostructure": "Index-First",
+    "theme": "Newsprint",
+    "genre": "editorial",
+    "nav": "N6 Newspaper Masthead",
+    "footer": "Ft4 Dense Typographic",
+    "enrichment": "none",
+    "brief": "Redesign Company Notes as a three-language technical field journal while preserving MkDocs blog and Pages deployment"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-21",
+  "framework": "MkDocs Material 9.6; three independently built locale trees",
+  "font_original": "Inter/system/Noto fallback in shared/stylesheets/site.css",
+  "palette_original": "slate #0c1216 dark with teal/green accent",
+  "motion_original": "CSS hover, no animation library",
+  "spacing_original": "non-tokenized padding/margins",
+  "preserved": ["MkDocs Material", "existing three locales", "GitHub Pages custom domain", "blog post routes", "MCP / playbook content"],
+  "changed": ["editorial theme", "home macrostructure", "new shared tokens", "site-wide typography"]
+}

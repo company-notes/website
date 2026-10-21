@@ -1,26 +1,59 @@
 ---
 title: Company Notes
-description: Field notes on building an AI-operated company with Grok Bot: roles, daily routines, MCP integrations, security boundaries, and what actually works. Written from hands-on experience, not generated hype.
+description: A working company, documented as it changes
 hide:
+  - navigation
   - toc
 ---
-<div class="cn-landing">
-<div class="cn-hero">
-  <span class="cn-kicker">FIELD NOTES / BUILDING AN AI COMPANY</span>
-  <h1>One person.<br><span>An AI team.</span></h1>
-  <p class="cn-lead">Field notes on building an AI-operated company with Grok Bot: roles, daily routines, MCP integrations, security boundaries, and what actually works. Written from hands-on experience, not generated hype.</p>
-  <div class="cn-actions">
-    <a class="cn-button cn-button-primary" href="blog/">Read the journal ↗</a>
-    <a class="cn-button cn-button-secondary" href="playbooks/">Explore playbooks ↗</a>
+
+<div class="cn-publication" lang="en">
+  <div class="cn-issue-line"><span>A one-person company × an AI team · notes in public</span><span>COMPANY-NOTES.COM</span></div>
+  <header class="cn-masthead" aria-label="Company Notes">
+    <h1>Company Notes</h1>
+    <p>A working company, documented as it changes</p>
+  </header>
+  <div class="cn-introduction">
+    <h2>AI in the daily work.<br>Not just the slide deck.</h2>
+    <p>I use Grok Bot to coordinate work and MCP to connect mail, task boards, knowledge, and ERP systems. These are field notes on what is actually running, what breaks, and what I change.</p>
   </div>
-  <div class="cn-micro"><span>● REAL WORKFLOWS</span><span>● OPEN NOTES</span><span>● THREE LANGUAGES</span></div>
-</div>
-<div class="cn-section-head"><div><p class="cn-label">WHAT THIS IS ABOUT</p><h2>From the idea to daily operations.</h2><p>Three areas we explore in public.</p></div></div>
-<div class="cn-cards">
-  <a class="cn-card" href="playbooks/"><span class="cn-n">01 / ORGANIZATION</span><h3>Roles and ownership</h3><p>How should AI departments work? Which decisions belong to people?</p></a>
-  <a class="cn-card" href="blog/"><span class="cn-n">02 / OPERATIONS</span><h3>Daily operations</h3><p>Routines, handoffs, exceptions and reviews that make automation sustainable.</p></a>
-  <a class="cn-card" href="toolkit/"><span class="cn-n">03 / INFRASTRUCTURE</span><h3>Systems and tools</h3><p>Connect mail, tasks, knowledge and ERP through MCP—with permissions and file delivery.</p></a>
-</div>
-<div class="cn-split"><div><p class="cn-label">SYSTEMS / MCP / OPERATIONS</p><h2>AI needs governance, not just prompts.</h2><p>Not every task should be solved by clicking around websites. Business systems need explicit tools, defensible permissions and traceable actions. We document those engineering tradeoffs.</p><a href="toolkit/">Browse the toolkit →</a></div><div class="cn-flow"><div class="cn-flow-item">HUMAN / APPROVAL</div><div class="cn-flow-arrow">↓</div><div class="cn-flow-item">GROK BOT / ROUTINES</div><div class="cn-flow-arrow">↓</div><div class="cn-flow-item">MCP / PERMISSIONS / SYSTEMS</div></div></div>
-<div class="cn-bottom"><span>Updated as the experiments evolve.</span><a href="blog/">Latest writing →</a></div>
+  <div class="cn-body-grid">
+    <section class="cn-index" id="read">
+      <div class="cn-section-top"><h2>Start reading</h2><p>Field notes, methods, and working references</p></div>
+      <nav class="cn-index-last" aria-label="Start reading">
+      <a class="cn-route" href="blog/why-company-notes/">
+        <span class="cn-route-main"><span class="cn-route-type">Field note · 2026.10.21</span><span class="cn-route-title">Why Company Notes exists</span><span class="cn-route-description">Why document a company operated with AI, and what this publication will not do.</span></span>
+        <span class="cn-route-end" aria-hidden="true">↗</span>
+      </a>
+      <a class="cn-route" href="playbooks/organization/">
+        <span class="cn-route-main"><span class="cn-route-type">Playbook · Organization</span><span class="cn-route-title">Define responsibility before delegating to a Bot</span><span class="cn-route-description">Roles, permission boundaries, and the decisions a human still needs to own.</span></span>
+        <span class="cn-route-end" aria-hidden="true">↗</span>
+      </a>
+      <a class="cn-route" href="playbooks/daily-operations/">
+        <span class="cn-route-main"><span class="cn-route-type">Playbook · Operations</span><span class="cn-route-title">Daily handoffs, checks, and reviews</span><span class="cn-route-description">How recurring tasks become a routine that stays understandable when something fails.</span></span>
+        <span class="cn-route-end" aria-hidden="true">↗</span>
+      </a>
+      <a class="cn-route" href="toolkit/">
+        <span class="cn-route-main"><span class="cn-route-type">Toolkit · Integrations</span><span class="cn-route-title">Let Grok Bot use real systems through MCP</span><span class="cn-route-description">Mail, Wekan, Memos, ERPNext, MIS MCP, and FFL when large-file delivery matters.</span></span>
+        <span class="cn-route-end" aria-hidden="true">↗</span>
+      </a>
+      </nav>
+    </section>
+    <aside class="cn-aside" aria-label="Editorial note">
+      <h2>Not another AI news site.</h2>
+      <p>I write from actual use. Unverified ideas are described as ideas, not implementations. The limitations and failed attempts belong here too.</p>
+      <h2>Systems in the experiment</h2>
+      <ul class="cn-system-list"><li><strong>Grok Bot</strong><span>Roles and routines</span></li>
+<li><strong>Mail / Wekan / Memos</strong><span>Daily collaboration</span></li>
+<li><strong>ERPNext / MIS MCP</strong><span>Integrations and access</span></li>
+<li><strong>FFL MCP</strong><span>Large artifact delivery</span></li></ul>
+    </aside>
+  </div>
+  <section class="cn-editor-note" aria-label="Perspective">
+    <h2>The hard part of AI operations is rarely the prompt.</h2>
+    <div><p>It is permissions, connections between systems, and who owns the result when something goes wrong. This publication covers those less glamorous details.</p><p class="cn-about-link"><a class="cn-text-link" href="about/">About the project ↗</a></p></div>
+  </section>
+  <footer class="cn-colophon">
+    <div><strong>Company Notes</strong><div>First-hand notes, revised as we learn</div><div>Independent publication · not an official Grok Bot site</div></div>
+    <div><a href="https://github.com/company-notes" rel="noopener noreferrer">Code and scripts ↗</a></div>
+  </footer>
 </div>

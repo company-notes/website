@@ -14,9 +14,9 @@ theme:
   logo: assets/logo.svg
   favicon: assets/favicon.svg
   palette:
-    - scheme: slate
+    - scheme: default
       primary: custom
-      accent: teal
+      accent: custom
   features:
     - navigation.tabs
     - navigation.sections
