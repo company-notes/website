@@ -23,33 +23,33 @@ hide:
         </div>
         <div class="cn-carousel-viewport" data-cn-viewport>
           <div class="cn-carousel-track" data-cn-track>
-            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="1 / 4">
-              <p class="cn-carousel-kind">About the project</p>
-              <p class="cn-carousel-description">No recycled AI headlines. Just the real work: roles, permissions, MCP integrations, daily routines, and everything that goes wrong in between.</p>
-              <a class="cn-mini-link" href="about/">About this project <span aria-hidden="true">↗</span></a>
-            </section>
             
-            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="2 / 4">
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="1 / 4">
               <p class="cn-carousel-kind">Featured article</p>
               <h2 class="cn-carousel-article-title">Why Company Notes?</h2>
               <p class="cn-carousel-description">Why document a real company operated by a person and AI agents, and what belongs in these field notes.</p>
               <a class="cn-mini-link" href="blog/why-company-notes/">Read the story <span aria-hidden="true">↗</span></a>
             </section>
             
-            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="3 / 4">
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="2 / 4">
               <p class="cn-carousel-kind">Playbook</p>
               <h2 class="cn-carousel-article-title">Design the org chart before hiring a Bot</h2>
               <p class="cn-carousel-description">What agents can do, what needs approval, and where permissions belong.</p>
               <a class="cn-mini-link" href="playbooks/organization/">Read the story <span aria-hidden="true">↗</span></a>
             </section>
             
-            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="4 / 4">
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="3 / 4">
               <p class="cn-carousel-kind">Playbook</p>
               <h2 class="cn-carousel-article-title">A daily operating rhythm that survives mistakes</h2>
               <p class="cn-carousel-description">Recurring tasks, handoffs, reviews, and handling exceptions.</p>
               <a class="cn-mini-link" href="playbooks/daily-operations/">Read the story <span aria-hidden="true">↗</span></a>
             </section>
             
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="4 / 4">
+              <p class="cn-carousel-kind">About the project</p>
+              <p class="cn-carousel-description">No recycled AI headlines. Just the real work: roles, permissions, MCP integrations, daily routines, and everything that goes wrong in between.</p>
+              <a class="cn-mini-link" href="about/">About this project <span aria-hidden="true">↗</span></a>
+            </section>
           </div>
         </div>
         <div class="cn-carousel-dots" role="group" aria-label="Choose a story">
@@ -64,25 +64,7 @@ hide:
           
         </div>
       </div>
-      <div class="cn-paper-picker" data-cn-paper-picker aria-label="Try a paper color">
-        <span class="cn-picker-caption">Try a paper color</span>
-        <div class="cn-paper-swatches" role="group" aria-label="Try a paper color">
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--warm" data-cn-paper-option="warm" data-cn-paper-name="Warm" aria-label="Warm" title="Warm" aria-pressed="true"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--white" data-cn-paper-option="white" data-cn-paper-name="Paper" aria-label="Paper" title="Paper" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--cream" data-cn-paper-option="cream" data-cn-paper-name="Cream" aria-label="Cream" title="Cream" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--mist" data-cn-paper-option="mist" data-cn-paper-name="Blue mist" aria-label="Blue mist" title="Blue mist" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--sage" data-cn-paper-option="sage" data-cn-paper-name="Sage" aria-label="Sage" title="Sage" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--blush" data-cn-paper-option="blush" data-cn-paper-name="Blush" aria-label="Blush" title="Blush" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-        </div>
-        <span class="cn-paper-choice" data-cn-paper-choice aria-live="polite">Warm</span>
-      </div>
+
     </div>
   </header>
 

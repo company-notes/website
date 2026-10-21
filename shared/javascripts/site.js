@@ -24,27 +24,77 @@
   }
 
   function setupPaperPicker() {
-    const picker = document.querySelector('[data-cn-paper-picker]');
-    if (!picker) return;
-    const buttons = [...picker.querySelectorAll('[data-cn-paper-option]')];
-    const output = picker.querySelector('[data-cn-paper-choice]');
-    const stored = readPreference(PAPER_KEY);
-    let current = papers.has(stored) ? stored : DEFAULT_PAPER;
+    const header = document.querySelector('.md-header__inner');
+    if (!header || header.querySelector('[data-cn-paper-toolbar]')) return;
+    const locale = window.location.pathname.startsWith('/en/') ? 'en' : window.location.pathname.startsWith('/zh-hans/') ? 'zh-hans' : 'zh-hant';
+    const strings = {
+      'zh-hant': { heading:'網站底色', tool:'變更網站底色', warm:'暖白', white:'紙白', cream:'奶油', mist:'霧藍', sage:'淺綠', blush:'霧粉' },
+      'zh-hans': { heading:'网站底色', tool:'更改网站底色', warm:'暖白', white:'纸白', cream:'奶油', mist:'雾蓝', sage:'浅绿', blush:'雾粉' },
+      'en': { heading:'Page background', tool:'Change page background', warm:'Warm', white:'Paper', cream:'Cream', mist:'Blue mist', sage:'Sage', blush:'Blush' }
+    }[locale];
+    const wrap = document.createElement('div');
+    wrap.className = 'cn-paper-toolbar';
+    wrap.dataset.cnPaperToolbar = '';
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'cn-paper-toggle';
+    toggle.setAttribute('aria-label', strings.tool);
+    toggle.title = strings.tool;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-haspopup', 'true');
+    toggle.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5c0-1.5-1.2-2.2-2.3-2.2h-1.7c-1 0-1.6-.8-1.6-1.6 0-.8.6-1.5 1.4-2.1A8.5 8.5 0 0 0 12 3.5Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="11" cy="7.5" r="1"/><circle cx="8.8" cy="16" r="1"/></svg>';
+    const panel = document.createElement('div');
+    panel.className = 'cn-paper-panel';
+    panel.hidden = true;
+    panel.setAttribute('role', 'group');
+    panel.setAttribute('aria-label', strings.heading);
+    const heading = document.createElement('p');
+    heading.className = 'cn-paper-panel__heading';
+    heading.textContent = strings.heading;
+    panel.append(heading);
+    const options = document.createElement('div');
+    options.className = 'cn-paper-panel__options';
+    const buttons = [];
+    for (const color of papers) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cn-paper-option';
+      btn.dataset.cnPaperOption = color;
+      btn.setAttribute('aria-pressed','false');
+      const chip = document.createElement('span');
+      chip.className = 'cn-paper-chip cn-paper-chip--' + color;
+      chip.setAttribute('aria-hidden','true');
+      btn.append(chip, document.createTextNode(strings[color]));
+      options.append(btn);
+      buttons.push(btn);
+    }
+    panel.append(options);
+    wrap.append(toggle,panel);
+    const language = Array.from(header.querySelectorAll('.md-header__option')).find(function (node) { return node.querySelector('.md-select'); });
+    const anchor = language || header.querySelector('.md-header__option') || header.querySelector('.md-search');
+    if (anchor) header.insertBefore(wrap, anchor);
+    else header.append(wrap);
     function choose(value, save) {
       if (!papers.has(value)) return;
-      current = value;
       document.documentElement.dataset.cnPaper = value;
-      buttons.forEach(function (button) {
-        const selected = button.dataset.cnPaperOption === value;
-        button.setAttribute('aria-pressed', String(selected));
-        if (selected && output) output.textContent = button.dataset.cnPaperName;
-      });
+      for (const btn of buttons) btn.setAttribute('aria-pressed', String(btn.dataset.cnPaperOption === value));
       if (save) writePreference(PAPER_KEY, value);
     }
-    buttons.forEach(function (button) {
-      button.addEventListener('click', function () { choose(button.dataset.cnPaperOption, true); });
+    choose(papers.has(readPreference(PAPER_KEY)) ? readPreference(PAPER_KEY) : DEFAULT_PAPER, false);
+    function open(value) {
+      panel.hidden = !value;
+      toggle.setAttribute('aria-expanded',String(value));
+    }
+    toggle.addEventListener('click',function () { open(panel.hidden); });
+    for (const btn of buttons) btn.addEventListener('click',function () {
+      choose(btn.dataset.cnPaperOption,true);
+      open(false);
+      toggle.focus();
     });
-    choose(current, false);
+    document.addEventListener('pointerdown',function (event) { if (!wrap.contains(event.target)) open(false); });
+    document.addEventListener('keydown',function (event) {
+      if (event.key === 'Escape' && !panel.hidden) { open(false); toggle.focus(); }
+    });
   }
 
   function setupCarousel() {

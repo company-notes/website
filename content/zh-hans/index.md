@@ -23,33 +23,33 @@ hide:
         </div>
         <div class="cn-carousel-viewport" data-cn-viewport>
           <div class="cn-carousel-track" data-cn-track>
-            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="1 / 4">
-              <p class="cn-carousel-kind">本站介绍</p>
-              <p class="cn-carousel-description">这里不转载 AI 新闻。从组织设计到 MCP、权限管理与每天发生的实际工作，把实验过程公开记录。</p>
-              <a class="cn-mini-link" href="about/">关于这个项目 <span aria-hidden="true">↗</span></a>
-            </section>
             
-            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="2 / 4">
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="1 / 4">
               <p class="cn-carousel-kind">精选文章</p>
               <h2 class="cn-carousel-article-title">为什么建立 Company Notes？</h2>
               <p class="cn-carousel-description">为什么公开记录一家由人与 AI 协作运营的公司，以及这份刊物准备分享什么。</p>
               <a class="cn-mini-link" href="blog/why-company-notes/">阅读内容 <span aria-hidden="true">↗</span></a>
             </section>
             
-            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="3 / 4">
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="2 / 4">
               <p class="cn-carousel-kind">方法论</p>
               <h2 class="cn-carousel-article-title">先为 AI 团队画好组织架构</h2>
               <p class="cn-carousel-description">Bot 可以做什么、哪些操作需要批准，以及权限在哪一层控制。</p>
               <a class="cn-mini-link" href="playbooks/organization/">阅读内容 <span aria-hidden="true">↗</span></a>
             </section>
             
-            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="4 / 4">
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="3 / 4">
               <p class="cn-carousel-kind">方法论</p>
               <h2 class="cn-carousel-article-title">建立每天能够持续运行的工作节奏</h2>
               <p class="cn-carousel-description">例行任务、交接、检查与失败之后的处理方式。</p>
               <a class="cn-mini-link" href="playbooks/daily-operations/">阅读内容 <span aria-hidden="true">↗</span></a>
             </section>
             
+            <section class="cn-carousel-slide" data-cn-slide aria-roledescription="slide" aria-label="4 / 4">
+              <p class="cn-carousel-kind">本站介绍</p>
+              <p class="cn-carousel-description">这里不转载 AI 新闻。从组织设计到 MCP、权限管理与每天发生的实际工作，把实验过程公开记录。</p>
+              <a class="cn-mini-link" href="about/">关于这个项目 <span aria-hidden="true">↗</span></a>
+            </section>
           </div>
         </div>
         <div class="cn-carousel-dots" role="group" aria-label="选择轮播内容">
@@ -64,25 +64,7 @@ hide:
           
         </div>
       </div>
-      <div class="cn-paper-picker" data-cn-paper-picker aria-label="试试底色">
-        <span class="cn-picker-caption">试试底色</span>
-        <div class="cn-paper-swatches" role="group" aria-label="试试底色">
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--warm" data-cn-paper-option="warm" data-cn-paper-name="暖白" aria-label="暖白" title="暖白" aria-pressed="true"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--white" data-cn-paper-option="white" data-cn-paper-name="纸白" aria-label="纸白" title="纸白" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--cream" data-cn-paper-option="cream" data-cn-paper-name="奶油" aria-label="奶油" title="奶油" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--mist" data-cn-paper-option="mist" data-cn-paper-name="雾蓝" aria-label="雾蓝" title="雾蓝" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--sage" data-cn-paper-option="sage" data-cn-paper-name="浅绿" aria-label="浅绿" title="浅绿" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-          <button type="button" class="cn-paper-swatch cn-paper-swatch--blush" data-cn-paper-option="blush" data-cn-paper-name="雾粉" aria-label="雾粉" title="雾粉" aria-pressed="false"><span class="cn-swatch-check" aria-hidden="true">✓</span></button>
-          
-        </div>
-        <span class="cn-paper-choice" data-cn-paper-choice aria-live="polite">暖白</span>
-      </div>
+
     </div>
   </header>
 
