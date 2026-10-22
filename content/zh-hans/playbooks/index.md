@@ -1,13 +1,15 @@
 ---
 title: 方法论
 ---
-# 方法论 / Playbooks
 
-<div class="cn-article-intro">以下是持续修订的设计笔记与起点，不是适合所有企业的固定模板。</div>
+# 方法论
 
-## 起点
+本页根据 Blog 分类自动整理。以下均为尚未完成人工审核的 AI 初稿。
 
-- [AI 组织与角色设计](organization.md)
-- [日常运营循环](daily-operations.md)
+## [先为 AI 团队画好组织架构](../blog/ai-organization/)
 
-我们会逐步补充实际案例和版本记录。
+Bot 可以做什么、哪些操作需要批准，以及权限在哪一层控制。 — **AI 初稿 · 待人工审核**
+
+## [建立每天能够持续运行的工作节奏](../blog/daily-operations/)
+
+例行任务、交接、检查与失败之后的处理方式。 — **AI 初稿 · 待人工审核**
