@@ -1,0 +1,24 @@
+{# Preserve Material's standard content partial, adding a notice only for review-status posts. #}
+{% include "partials/tags.html" %}
+{% include "partials/actions.html" %}
+{% if "<h1" not in page.content %}
+  <h1>{{ page.title | d(config.site_name, true) }}</h1>
+{% endif %}
+{% if page.meta and page.meta.status == 'review' %}
+  <aside class="cn-review-notice" role="note">
+    {% if config.extra.locale == 'en' %}
+      <strong>AI-generated draft · Human review pending.</strong>
+      This is preliminary AI-written material. It still needs real operational evidence, human verification, revision and proofreading before publication.
+    {% elif config.extra.locale == 'zh-hans' %}
+      <strong>AI 生成初稿 · 待人工审核。</strong>
+      本文尚需补充实际经验，经过人工核查、修改与校稿，不能视为已经验证的实践案例。
+    {% else %}
+      <strong>AI 生成初稿 · 待人工校稿。</strong>
+      本文尚需補充實際經驗，經過人工查證、修改與校稿，不能視為已經驗證的實戰案例。
+    {% endif %}
+  </aside>
+{% endif %}
+{{ page.content }}
+{% include "partials/source-file.html" %}
+{% include "partials/feedback.html" %}
+{% include "partials/comments.html" %}

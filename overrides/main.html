@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block extrahead %}
   {{ super() }}
+  {% if page and page.meta and page.meta.status == "review" %}
+  <meta name="robots" content="noindex, follow">
+  {% endif %}
   <script>
     (function () {
       /* Bootstrap preferences before first paint; no dependency on a CMS or CDN. */

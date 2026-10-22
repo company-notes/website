@@ -288,3 +288,19 @@ a:active,button:active { opacity:.83; }
   .cn-carousel-title {font-size:1.02rem;}
   .cn-paper-toggle {width:2.2rem;height:2.2rem;}
 }
+
+
+/* Articles and excerpts labelled as publicly visible AI drafts under human review */
+.cn-review-marker {
+ display:inline-block;vertical-align:middle;padding:.18rem .42rem;border:1px solid var(--color-rule);
+ border-radius:.25rem;color:var(--color-ink-2);background:var(--color-paper-2);
+ font-size:.68rem;font-weight:650;letter-spacing:0;white-space:nowrap;
+}
+.cn-card-meta .cn-review-marker{color:var(--color-ink-2);}
+.cn-carousel-kind .cn-review-marker{margin-left:.3rem}
+.cn-review-notice{
+ padding:1rem 1.1rem;margin:1.1rem 0 1.6rem;border:1px solid var(--color-rule);
+ background:var(--color-paper-2);color:var(--color-ink);line-height:1.75;font-size:.88rem
+}
+.cn-review-notice strong{font-weight:750}
+.cn-empty{color:var(--color-muted);margin:1rem 0 2rem}
