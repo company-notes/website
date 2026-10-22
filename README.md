@@ -61,3 +61,11 @@ Install dependencies with pip install -r requirements.txt, then run:
 Push to main: GitHub Actions validates three locales and automatically deploys to GitHub Pages, using the configured company-notes.com custom domain. Traditional Chinese is at /, English at /en/, and Simplified Chinese at /zh-hans/. Translation files are authored separately rather than automatically machine-translated during site building.
 
 Background color and locale selectors continue to work on the published website.
+
+## Language routing for direct article links
+
+- Traditional Chinese lives at `/`, English at `/en/`, and Simplified Chinese at `/zh-hans/`.
+- A visitor entering the unprefixed homepage **or a direct article URL** (for example `/blog/grok-bot-backup/`) is routed to the same path under their saved language preference, or the browser language when no preference is saved. Queries and anchors are preserved.
+- Explicit `/en/` and `/zh-hans/` links always take precedence over automatic detection. Using the language menu saves the manual choice in local storage; visiting an unprefixed URL can therefore honor it later.
+- GitHub Pages serves static HTML, so the automatic redirect is client-side JavaScript. Search engines without JavaScript still see the canonical Traditional Chinese document and the site's alternate-language URLs.
+- Run `node tests/test_locale_redirect.cjs` to validate deep links and preferences locally.

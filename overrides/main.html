@@ -6,24 +6,33 @@
   {% endif %}
   <script>
     (function () {
-      /* Bootstrap preferences before first paint; no dependency on a CMS or CDN. */
+      /* Apply the saved page colour before paint and localize direct content links. */
       var colors = {warm:1,white:1,cream:1,mist:1,sage:1,blush:1};
       var selected = null;
       try { selected = localStorage.getItem('company-notes:paper'); } catch (_) {}
       if (colors[selected]) document.documentElement.dataset.cnPaper = selected;
-      if (location.pathname !== '/') return;
-      var manual = null;
-      try { manual = localStorage.getItem('company-notes:language'); } catch (_) {}
-      var lang = manual;
-      if (!['zh-hant','en','zh-hans'].includes(lang)) {
-        var languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-        var primary = String(languages[0] || '').toLowerCase();
-        if (primary === 'zh-cn' || primary === 'zh-sg' || primary.startsWith('zh-hans')) lang = 'zh-hans';
-        else if (primary.startsWith('zh')) lang = 'zh-hant';
-        else lang = 'en';
+
+      var path = location.pathname;
+      // A language prefix is an explicit visitor choice: never override it.
+      if (/^\/(?:en|zh-hans)(?:\/|$)/.test(path)) return;
+      // Only redirect actual content sections, not assets, sitemap or unknown paths.
+      if (path !== '/' && !/^\/(?:blog|playbooks|toolkit|about)(?:\/|$)/.test(path)) return;
+
+      var lang = null;
+      try { lang = localStorage.getItem('company-notes:language'); } catch (_) {}
+      if (lang !== 'zh-hant' && lang !== 'zh-hans' && lang !== 'en') {
+        var languages = navigator.languages && navigator.languages.length
+          ? navigator.languages : [navigator.language || ''];
+        lang = 'en';
+        for (var i = 0; i < languages.length; i++) {
+          var browserLanguage = String(languages[i] || '').toLowerCase().replace(/_/g, '-');
+          if (/^zh-(?:cn|sg|hans)(?:-|$)/.test(browserLanguage)) { lang = 'zh-hans'; break; }
+          if (browserLanguage.indexOf('zh') === 0) { lang = 'zh-hant'; break; }
+          if (browserLanguage.indexOf('en') === 0) { lang = 'en'; break; }
+        }
       }
       if (lang === 'en' || lang === 'zh-hans') {
-        location.replace('/' + lang + '/' + location.search + location.hash);
+        location.replace('/' + lang + path + location.search + location.hash);
       }
     })();
   </script>
