@@ -2,11 +2,15 @@
 title: 為什麼建立 Company Notes？
 date: 2026-10-21
 slug: why-company-notes
+tags: [AI-company, Grok-Bot]
+featured: true
+featured_order: 1
+featured_image: assets/covers/field-notes.svg
+featured_image_alt: "Company Notes AI 公司實驗封面插畫"
+status: review
 categories:
 - Field Notes
 description: 為什麼公開記錄一間由人與 AI 協作營運的公司，以及這份刊物打算分享什麼。
-cover: assets/covers/field-notes.svg
-cover_alt: 'Company Notes: humans and AI agents connected by working systems'
 ---
 
 # 為什麼建立 Company Notes？
@@ -14,6 +18,8 @@ cover_alt: 'Company Notes: humans and AI agents connected by working systems'
 這個網站不是 AI 新聞站，也不是一套宣稱萬能的 Bot 課程。它要記錄一間公司如何一步步把 AI 放進實際的日常工作。
 
 <!-- more -->
+
+![Company Notes](../../assets/covers/field-notes.svg)
 
 我正在探索以 Grok Bot 組織公司的工作流程。過程中不只是 Prompt 設定，也涉及郵件、任務看板、知識管理、ERP 與 MCP 整合。
 
