@@ -1,8 +1,8 @@
 ---
-title: "我让 Grok Bot 给自己做备份，因为我不想被平台锁死"
+title: "Grok Bot 最重要的事——备份！而且别被平台锁死"
 date: 2026-10-22
 slug: grok-bot-backup
-description: "从第一天使用 Grok Bot 起，我就担心被平台绑定，所以让 AI 助手导出所有能获取的数据，包括原始备份和便于人工交接的版本。"
+description: "如何备份 Grok Bot 的全部数据，以后还能交接给其他 AI 助手，甚至真人。快来试试，从此安心。"
 categories: [Field Notes]
 tags: [Grok-Bot, backup, AI-assistant, knowledge-management]
 featured: true
@@ -12,7 +12,7 @@ featured_image_alt: "Company Notes 实战记录封面插画"
 status: published
 ---
 
-# 我让 Grok Bot 给自己做备份，因为我不想被平台锁死
+# Grok Bot 最重要的事——备份！而且别被平台锁死
 
 从开始使用 Grok Bot 的第一天起，我就担心一件事。
 

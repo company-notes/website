@@ -1,8 +1,8 @@
 ---
-title: "I Had Grok Bot Back Itself Up Because I Don't Want to Be Locked In"
+title: "Grok Bot's Most Important Task - Backups! And Don't Get Locked In"
 date: 2026-10-22
 slug: grok-bot-backup
-description: "I've worried about AI assistant lock-in since day one, so I had Grok Bot export everything it could access—in raw form and in a format a human could actually take over."
+description: "How to back up all your Grok Bot data so you can hand it over to another AI assistant—or even a person. Give it a try, and enjoy the peace of mind."
 categories: [Field Notes]
 tags: [Grok-Bot, backup, AI-assistant, knowledge-management]
 featured: true
@@ -12,7 +12,7 @@ featured_image_alt: "Company Notes field journal cover illustration"
 status: published
 ---
 
-# I Had Grok Bot Back Itself Up Because I Don't Want to Be Locked In
+# Grok Bot's Most Important Task - Backups! And Don't Get Locked In
 
 Ever since my first day using Grok Bot, there's been one thing on my mind.
 
