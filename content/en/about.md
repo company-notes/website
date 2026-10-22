@@ -13,3 +13,9 @@ The publication grows out of hands-on work at [Nuwa Information](https://nuwainf
 - [Nuwa Information](https://nuwainfo.com/)
 
 The focus is on real tradeoffs and honest reporting, not promises that any platform can run a business without supervision.
+
+### How the articles are written
+
+This publication values hands-on experience and human editorial judgment. AI may help organize notes, polish language, translate and improve structure. This is **not 100% AI-free writing**, but it is **not raw AI text passed off as verified firsthand experience**.
+
+Some current articles are explicitly marked **AI-generated preliminary drafts awaiting human review**. They will become fully published after hands-on validation, human editing and proofreading.

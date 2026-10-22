@@ -1,13 +1,15 @@
 ---
 title: Playbooks
 ---
+
 # Playbooks
 
-<div class="cn-article-intro">Living design notes and starting points, not universal templates for every company.</div>
+This index is generated from real Blog categories. These initial posts are AI-written drafts awaiting human review.
 
-## Start here
+## [Design the org chart before hiring a Bot](../blog/ai-organization/)
 
-- [Designing AI roles and responsibilities](organization.md)
-- [A daily operating loop](daily-operations.md)
+What agents can do, what needs approval, and where permissions belong. — **AI draft · human review pending**
 
-We will expand these notes with practical examples and revision histories.
+## [A daily operating rhythm that survives mistakes](../blog/daily-operations/)
+
+Recurring tasks, handoffs, reviews, and handling exceptions. — **AI draft · human review pending**

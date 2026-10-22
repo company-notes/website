@@ -1,23 +1,8 @@
 ---
-title: A daily operating loop
+title: "A daily operating rhythm that survives mistakes"
+robots: noindex, follow
 ---
-# A daily operating loop
 
-Continuous operations are harder than executing one prompt. A useful daily workflow separates four stages:
+This article has moved into the Blog. The old URL remains available for older links.
 
-1. **Collect** from authorized mailboxes, boards and systems.
-2. **Assess** routine tasks, exceptions and decisions that require a person.
-3. **Act** through scoped MCP tools rather than uncontrolled browsing.
-4. **Verify** outcomes and report unfinished work with evidence.
-
-## Example review structure
-
-```text
-Daily review
-  ├── Inbox: items requiring a response
-  ├── Board: overdue tasks and handoffs
-  ├── ERP: pending human approvals
-  └── Exceptions: permission errors, unavailable services
-```
-
-This is an illustrative pattern, not a company's finalized SOP.
+[Read A daily operating rhythm that survives mistakes](../blog/posts/2026-10-21-daily-operations.md)

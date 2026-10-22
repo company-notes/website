@@ -2,12 +2,16 @@
 title: Why Company Notes?
 date: 2026-10-21
 slug: why-company-notes
+tags: [AI-company, Grok-Bot]
+featured: true
+featured_order: 1
+featured_image: assets/covers/field-notes.svg
+featured_image_alt: "Original Company Notes field journal illustration"
+status: review
 categories:
 - Field Notes
 description: Why document a real company operated by a person and AI agents, and what
   belongs in these field notes.
-cover: assets/covers/field-notes.svg
-cover_alt: 'Company Notes: humans and AI agents connected by working systems'
 ---
 
 # Why Company Notes?
@@ -15,6 +19,8 @@ cover_alt: 'Company Notes: humans and AI agents connected by working systems'
 This is not an AI news site or another course claiming that a set of prompts can run a company. It is a place to document how a real business puts agents to work, one workflow at a time.
 
 <!-- more -->
+
+![Company Notes](../../assets/covers/field-notes.svg)
 
 I am experimenting with Grok Bot as part of an AI-operated company. The work goes beyond prompts: mail, task boards, knowledge, ERP systems, permission boundaries and MCP integrations all matter.
 
