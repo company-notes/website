@@ -55,9 +55,15 @@ class EditorialTests(unittest.TestCase):
                 self.assertIn('../blog/enterprise-mcp/', page)
                 self.assertIn(resources[locale]['heading'], page)
                 self.assertIn(resources[locale]['resources'][0]['name'], page)
+                self.assertIn('<div class="cn-toolkit-table-wrap" role="region" tabindex="0"', page)
                 self.assertIn('<table class="cn-toolkit-table">', page)
+                self.assertIn('<colgroup><col class="cn-toolkit-col-tool"><col class="cn-toolkit-col-description"><col class="cn-toolkit-col-links"></colgroup>', page)
                 self.assertIn('<th scope="col">', page)
-                self.assertIn('<th scope="row" class="cn-toolkit-tool">', page)
+                self.assertIn('<th scope="row" class="cn-toolkit-tool"><div class="cn-toolkit-identity">', page)
+                self.assertIn('class="cn-toolkit-link-list"', page)
+                self.assertIn('class="cn-toolkit-action cn-toolkit-action-primary"', page)
+                self.assertEqual(page.count('class="cn-toolkit-action'), 2)
+                self.assertNotIn('<br>', page)
                 self.assertIn('src="../assets/toolkit/grok-bot-backup.svg"', page)
                 self.assertIn('alt="'+resources[locale]['resources'][0]['image_alt']+'"', page)
                 self.assertIn('width="192" height="120"', page)
@@ -69,6 +75,13 @@ class EditorialTests(unittest.TestCase):
         svg_root=ET.parse(source_svg).getroot()
         self.assertEqual(svg_root.attrib['viewBox'], '0 0 900 560')
         self.assertEqual(svg_root.attrib['role'], 'img')
+
+        css=(self.root/'shared/stylesheets/site.css').read_text(encoding='utf-8')
+        self.assertIn('min-width: 800px;', css)
+        self.assertIn('table-layout: fixed;', css)
+        self.assertIn('border: 1.5px solid var(--color-rule);', css)
+        self.assertIn('.cn-toolkit-col-links { width: 27%; }', css)
+        self.assertIn('a.cn-toolkit-action-primary', css)
 
     def test_new_post_feature_and_draft_exclusion(self):
         paths=[]

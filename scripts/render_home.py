@@ -38,21 +38,30 @@ def render_category_pages(locale,posts):
             from html import escape
             resources=json.loads((ROOT/'templates'/'toolkit_resources.json').read_text(encoding='utf-8'))[locale]
             columns=resources['columns']
-            lines += [f'## {resources["heading"]}', '',
-                      '<div class="cn-toolkit-table-wrap" role="region" aria-label="'+escape(resources['heading'],quote=True)+'">',
-                      '<table class="cn-toolkit-table">',
-                      '<thead><tr>'+''.join(f'<th scope="col">{escape(label)}</th>' for label in columns)+'</tr></thead>',
-                      '<tbody>']
+            lines += [
+                f'## {resources["heading"]}', '',
+                '<div class="cn-toolkit-table-wrap" role="region" tabindex="0" aria-label="'+escape(resources['heading'], quote=True)+'">',
+                '<table class="cn-toolkit-table">',
+                '<colgroup><col class="cn-toolkit-col-tool"><col class="cn-toolkit-col-description"><col class="cn-toolkit-col-links"></colgroup>',
+                '<thead><tr>'+''.join(f'<th scope="col">{escape(label)}</th>' for label in columns)+'</tr></thead>',
+                '<tbody>',
+            ]
             for item in resources['resources']:
                 image=f'../{item["image"]}'
-                links='<br>'.join(
-                    f'<a href="{escape(link["url"],quote=True)}" rel="noopener noreferrer">{escape(link["label"])} ↗</a>'
-                    for link in item['links'])
+                link_nodes=[]
+                for index, link in enumerate(item['links']):
+                    variant=' cn-toolkit-action-primary' if index==0 else ''
+                    link_nodes.append(
+                        f'<a class="cn-toolkit-action{variant}" href="{escape(link["url"], quote=True)}" rel="noopener noreferrer">'
+                        f'{escape(link["label"])} <span aria-hidden="true">↗</span></a>'
+                    )
                 lines += [
                     '<tr>',
-                    f'<th scope="row" class="cn-toolkit-tool"><img src="{escape(image,quote=True)}" alt="{escape(item["image_alt"],quote=True)}" width="192" height="120" loading="lazy"><strong>{escape(item["name"])}</strong></th>',
-                    f'<td class="cn-toolkit-description">{escape(item["description"])}</td>',
-                    f'<td class="cn-toolkit-links">{links}</td>',
+                    f'<th scope="row" class="cn-toolkit-tool"><div class="cn-toolkit-identity">'
+                    f'<img src="{escape(image, quote=True)}" alt="{escape(item["image_alt"], quote=True)}" width="192" height="120" loading="lazy">'
+                    f'<strong>{escape(item["name"])}</strong></div></th>',
+                    f'<td class="cn-toolkit-description"><p>{escape(item["description"])}</p></td>',
+                    f'<td class="cn-toolkit-links"><div class="cn-toolkit-link-list">{"".join(link_nodes)}</div></td>',
                     '</tr>',
                 ]
             lines += ['</tbody></table></div>', '', f'## {resources["articles_heading"]}', '']

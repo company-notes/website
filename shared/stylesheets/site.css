@@ -306,20 +306,143 @@ a:active,button:active { opacity:.83; }
 .cn-empty{color:var(--color-muted);margin:1rem 0 2rem}
 
 
-/* Toolkit: scannable tool directory with editorial SVG illustrations. */
-.cn-toolkit-table-wrap { max-width:100%; overflow-x:auto; border:1px solid var(--color-rule); border-radius:var(--radius-md); background:var(--color-paper); scrollbar-width:thin; }
-.md-typeset table.cn-toolkit-table { width:100%; min-width:570px; margin:0; border-collapse:collapse; border-spacing:0; background:transparent; box-shadow:none; }
-.md-typeset .cn-toolkit-table th,.md-typeset .cn-toolkit-table td { padding:1rem 1.05rem; border:0; border-bottom:1px solid var(--color-rule); vertical-align:middle; line-height:1.58; text-align:left; }
-.md-typeset .cn-toolkit-table thead th { background:var(--color-paper-2); color:var(--color-ink-2); font-family:var(--font-body); font-size:.72rem; font-weight:800; letter-spacing:.055em; text-transform:uppercase; }
-.md-typeset .cn-toolkit-table tbody tr:last-child th,.md-typeset .cn-toolkit-table tbody tr:last-child td { border-bottom:0; }
-.md-typeset .cn-toolkit-table th.cn-toolkit-tool { width:34%; min-width:180px; background:transparent; font-size:.88rem; font-weight:700; }
-.cn-toolkit-tool img { display:block; width:100%; max-width:192px; aspect-ratio: 900 / 560; height:auto; margin:0 0 .65rem; border-radius:var(--radius-sm); object-fit:cover; }
-.md-typeset .cn-toolkit-tool strong { display:block; color:var(--color-ink); font-family:var(--font-display); }
-.md-typeset .cn-toolkit-description { min-width:225px; color:var(--color-ink-2); font-size:.85rem; }
-.md-typeset .cn-toolkit-links { min-width:144px; white-space:nowrap; font-size:.83rem; line-height:2.05; }
-.md-typeset .cn-toolkit-links a { color:var(--color-accent); font-weight:800; text-decoration:none; }
-.md-typeset .cn-toolkit-links a:hover { text-decoration:underline; }
-@media (max-width:600px) {
-  .md-typeset .cn-toolkit-table th,.md-typeset .cn-toolkit-table td { padding:.8rem; }
-  .cn-toolkit-tool img { max-width:145px; }
+/* Toolkit resource table — designed to stay readable at desktop and phone widths. */
+.md-typeset > .cn-toolkit-table-wrap,
+.md-typeset .cn-toolkit-table-wrap {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin: 1.35rem 0 2.7rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1.5px solid var(--color-rule);
+  border-radius: 14px;
+  background: var(--color-paper);
+  box-shadow: 0 8px 26px rgba(23, 48, 80, .07);
+  scrollbar-width: thin;
+}
+.md-typeset .cn-toolkit-table-wrap:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+.md-typeset .cn-toolkit-table-wrap > table.cn-toolkit-table {
+  display: table;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 800px;
+  max-width: none;
+  margin: 0;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  background: transparent;
+  box-shadow: none;
+}
+.cn-toolkit-col-tool { width: 27%; }
+.cn-toolkit-col-description { width: 46%; }
+.cn-toolkit-col-links { width: 27%; }
+.md-typeset .cn-toolkit-table th,
+.md-typeset .cn-toolkit-table td {
+  box-sizing: border-box;
+  padding: 1.45rem 1.4rem;
+  border: 0;
+  border-bottom: 1px solid var(--color-rule);
+  vertical-align: middle;
+  text-align: left;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.md-typeset .cn-toolkit-table thead th {
+  padding: .85rem 1.4rem;
+  background: var(--color-ink);
+  color: var(--color-on-accent);
+  border-bottom: 0;
+  font-family: var(--font-body);
+  font-size: .71rem;
+  font-weight: 800;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+.md-typeset .cn-toolkit-table thead th:not(:last-child) { border-right: 1px solid rgba(255, 255, 255, .17); }
+.md-typeset .cn-toolkit-table tbody tr:last-child th,
+.md-typeset .cn-toolkit-table tbody tr:last-child td { border-bottom: 0; }
+.md-typeset .cn-toolkit-table tbody th:not(:last-child),
+.md-typeset .cn-toolkit-table tbody td:not(:last-child) { border-right: 1px solid var(--color-rule); }
+.md-typeset .cn-toolkit-table tbody tr:hover { background: var(--color-paper-2); }
+.md-typeset .cn-toolkit-table th.cn-toolkit-tool {
+  min-width: 0;
+  background: transparent;
+  text-align: center;
+}
+.cn-toolkit-identity { display: flex; flex-direction: column; align-items: center; gap: .78rem; }
+.cn-toolkit-identity img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 184px;
+  height: auto;
+  aspect-ratio: 900 / 560;
+  margin: 0;
+  border: 1px solid var(--color-rule);
+  border-radius: 9px;
+  background: var(--color-paper-2);
+  object-fit: cover;
+}
+.md-typeset .cn-toolkit-identity strong {
+  display: block;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: .95rem;
+  line-height: 1.45;
+  font-weight: 750;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+.md-typeset .cn-toolkit-description { min-width: 0; color: var(--color-ink-2); font-size: .88rem; }
+.md-typeset .cn-toolkit-description p {
+  margin: 0;
+  max-width: 49ch;
+  color: inherit;
+  line-height: 1.82;
+}
+.md-typeset .cn-toolkit-links { min-width: 0; font-size: .83rem; }
+.cn-toolkit-link-list { display: flex; flex-direction: column; align-items: stretch; gap: .75rem; }
+.md-typeset .cn-toolkit-link-list a.cn-toolkit-action {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: .77rem .85rem;
+  border: 1px solid var(--color-rule);
+  border-radius: 9px;
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  font-size: .79rem;
+  font-weight: 800;
+  line-height: 1.45;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+.md-typeset .cn-toolkit-link-list a.cn-toolkit-action-primary {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-on-accent);
+}
+.md-typeset .cn-toolkit-link-list a.cn-toolkit-action:hover,
+.md-typeset .cn-toolkit-link-list a.cn-toolkit-action:focus-visible {
+  border-color: var(--color-accent);
+  background: var(--color-highlight);
+  color: var(--color-ink);
+}
+@media (max-width: 680px) {
+  .md-typeset .cn-toolkit-table-wrap > table.cn-toolkit-table { min-width: 740px; }
+  .md-typeset .cn-toolkit-table th,
+  .md-typeset .cn-toolkit-table td { padding: 1.05rem 1rem; }
+  .md-typeset .cn-toolkit-table thead th { padding: .8rem 1rem; }
+  .cn-toolkit-identity img { max-width: 160px; }
 }
