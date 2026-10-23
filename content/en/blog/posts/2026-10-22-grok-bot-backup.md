@@ -16,7 +16,7 @@ status: published
 
 Ever since my first day using Grok Bot, there's been one thing on my mind.
 
-This thing is incredibly useful and powerful, but the AI assistant world changes several times a day. From the early "little lobster" (Clawbot), to Hermes, to Muse for Small Business and Dots today—Claude has Duet now, too.
+This thing is incredibly useful and powerful, but the AI assistant world changes several times a day. From the early "little lobster" (OpenClaw), to Hermes, to Muse for Small Business and Dots today—Claude has Duet now, too.
 
 There are all sorts of AI assistants out there. One day we might want to switch simply because another one fits us better (or just because it's cheaper :p).
 

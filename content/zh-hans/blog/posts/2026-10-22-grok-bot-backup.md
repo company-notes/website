@@ -16,7 +16,7 @@ status: published
 
 从开始使用 Grok Bot 的第一天起，我就担心一件事。
 
-这玩意儿虽然很好用、很强大，但 AI 助手这个领域一天就能变好几次。从最早的“小龙虾”（Clawbot），到 Hermes，再到现在的 Muse for Small Business、Dots，Claude 也推出了 Duet。
+这玩意儿虽然很好用、很强大，但 AI 助手这个领域一天就能变好几次。从最早的“小龙虾”（OpenClaw），到 Hermes，再到现在的 Muse for Small Business、Dots，Claude 也推出了 Duet。
 
 各种各样的 AI 助手，说不定哪天我们就会因为另一款更适合自己而想换平台（或者纯粹因为更划算 :p）。
 
