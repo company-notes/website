@@ -66,6 +66,8 @@ GitHub：[company-notes/grok-bot-backup](https://github.com/company-notes/grok-b
 
 你可以直接让自己的 Bot 看看这个项目，clone 下来运行就行。
 
+另外，我还直接做了一个[可以导入的 Grok Bot 备份助手](https://x.ai/bot/LvdHazZLidr0S3JJAdr8e)。不想自己研究怎么配置的话，直接导入这个 Bot 就行。它会引导你完成备份，问你想把备份保存在哪里（Google Drive 或本地），以及多久备份一次。
+
 提醒一下，备份里可能包含私人消息和敏感数据。请把备份放在有访问保护的存储位置，不要把生成的备份压缩包上传到公开的 GitHub 仓库。
 
 我自己目前的做法，是让 MIS 部门的 AI 助手建立定时任务，每周备份一次到 Google Drive，并放进专门的备份文件夹。

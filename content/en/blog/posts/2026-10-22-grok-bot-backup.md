@@ -66,6 +66,8 @@ GitHub: [company-notes/grok-bot-backup](https://github.com/company-notes/grok-bo
 
 You can simply ask your Bot to look at the project, clone it, and run it.
 
+I also made a [Grok Bot backup assistant you can import directly](https://x.ai/bot/LvdHazZLidr0S3JJAdr8e). If you don't want to figure out the setup yourself, just import this Bot. It'll walk you through the backup, ask where you'd like to keep the backups (Google Drive or on your own machine), and how often you want them to run.
+
 One reminder: backups can contain private messages and sensitive data. Keep them in protected storage, and don't upload the resulting backup archives to a public GitHub repository.
 
 What I do myself is ask the AI assistant in our MIS department to set up a recurring task: back things up once a week to Google Drive, in a folder dedicated to backups.
