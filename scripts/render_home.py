@@ -34,10 +34,18 @@ def render_category_pages(locale,posts):
     for category,dest,key in [('Playbooks','playbooks/index.md','playbooks'),('Toolkit','toolkit/index.md','toolkit')]:
         entries=[p for p in posts if p['category']==category]
         lines=['---',f'title: {msg[key]}','---','',f'# {msg[key]}','',msg['index'],'']
+        if category=='Toolkit':
+            resources=json.loads((ROOT/'templates'/'toolkit_resources.json').read_text(encoding='utf-8'))[locale]
+            lines += [f'## {resources["heading"]}', '']
+            for item in resources['resources']:
+                lines += [f'### {item["name"]}', '', item['description'], '']
+                lines += [' · '.join(f'[{link["label"]}]({link["url"]})' for link in item['links']), '']
+            lines += [f'## {resources["articles_heading"]}', '']
         if entries:
             for p in entries:
                 badge=f' — **{msg["review"]}**' if p['review'] else ''
-                lines += [f'## [{p["title"]}](../blog/{p["slug"]}/)','',p['excerpt']+badge,'']
+                level='###' if category=='Toolkit' else '##'
+                lines += [f'{level} [{p["title"]}](../blog/{p["slug"]}/)','',p['excerpt']+badge,'']
         else:lines += [msg['empty'],'']
         (root/dest).write_text('\n'.join(lines).rstrip()+'\n',encoding='utf-8')
 def render_homepages():

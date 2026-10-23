@@ -40,6 +40,24 @@ class EditorialTests(unittest.TestCase):
                 if post['category'] == category:
                     self.assertIn(f"../blog/{post['slug']}/", category_page)
 
+    def test_toolkit_includes_import_bot_and_github_in_all_languages(self):
+        render_home.render_homepages()
+        resources = __import__('json').loads(
+            (self.root / 'templates/toolkit_resources.json').read_text(encoding='utf-8'))
+        bot_url = 'https://x.ai/bot/LvdHazZLidr0S3JJAdr8e'
+        github_url = 'https://github.com/company-notes/grok-bot-backup'
+        self.assertEqual(set(resources), set(render_home.LOCALES))
+        for locale in render_home.LOCALES:
+            with self.subTest(locale=locale):
+                page = (self.root / 'content' / locale / 'toolkit/index.md').read_text()
+                self.assertIn(bot_url, page)
+                self.assertIn(github_url, page)
+                self.assertIn('../blog/enterprise-mcp/', page)
+                self.assertIn(resources[locale]['heading'], page)
+                self.assertIn(resources[locale]['resources'][0]['name'], page)
+                self.assertEqual([link['url'] for link in resources[locale]['resources'][0]['links']],
+                                 [bot_url, github_url])
+
     def test_new_post_feature_and_draft_exclusion(self):
         paths=[]
         try:

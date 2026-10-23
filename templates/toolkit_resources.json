@@ -1,0 +1,62 @@
+{
+  "zh-hant": {
+    "heading": "可直接使用的工具",
+    "articles_heading": "工具箱文章",
+    "resources": [
+      {
+        "name": "Grok Bot 備份助理",
+        "description": "直接匯入 Bot，它會引導你設定備份位置（Google Drive 或本機）與備份頻率；如果想自己安裝或修改，也可以查看 GitHub 開源程式。",
+        "links": [
+          {
+            "label": "直接匯入備份 Bot",
+            "url": "https://x.ai/bot/LvdHazZLidr0S3JJAdr8e"
+          },
+          {
+            "label": "GitHub 原始碼",
+            "url": "https://github.com/company-notes/grok-bot-backup"
+          }
+        ]
+      }
+    ]
+  },
+  "en": {
+    "heading": "Ready-to-use tools",
+    "articles_heading": "Toolkit articles",
+    "resources": [
+      {
+        "name": "Grok Bot Backup Assistant",
+        "description": "Import the Bot and let it guide you through choosing where to store backups (Google Drive or locally) and how often to run them. The source code is available on GitHub if you prefer to set things up or customize them yourself.",
+        "links": [
+          {
+            "label": "Import the backup Bot",
+            "url": "https://x.ai/bot/LvdHazZLidr0S3JJAdr8e"
+          },
+          {
+            "label": "GitHub source code",
+            "url": "https://github.com/company-notes/grok-bot-backup"
+          }
+        ]
+      }
+    ]
+  },
+  "zh-hans": {
+    "heading": "开箱即用的工具",
+    "articles_heading": "工具箱文章",
+    "resources": [
+      {
+        "name": "Grok Bot 备份助手",
+        "description": "直接导入 Bot，它会引导你设置备份保存位置（Google Drive 或本地）和备份频率。如果想自行部署或修改，也可以查看 GitHub 上的开源代码。",
+        "links": [
+          {
+            "label": "直接导入备份 Bot",
+            "url": "https://x.ai/bot/LvdHazZLidr0S3JJAdr8e"
+          },
+          {
+            "label": "GitHub 源代码",
+            "url": "https://github.com/company-notes/grok-bot-backup"
+          }
+        ]
+      }
+    ]
+  }
+}

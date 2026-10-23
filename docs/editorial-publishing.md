@@ -50,3 +50,13 @@
 - 配套原始碼：<https://github.com/company-notes/grok-bot-backup>
 
 這篇保留作者「我叫 Grok Bot 自己寫備份」的第一人稱原意，僅修標點／大小寫／重複句、補上連結；未改寫成宣傳稿。
+
+## 6. 工具箱裡的實用工具
+
+- `toolkit/index.md` 也是由 `scripts/render_home.py` 自動生成，**不可直接手改**。
+- 要在工具箱加上「可直接使用的外部 Bot、開源專案」等非文章資源，請修改 `templates/toolkit_resources.json`。每個資源可有名稱、簡介與多個連結（例如直接匯入 Bot、GitHub 原始碼）。
+- 三種語系 `zh-hant`、`en`、`zh-hans` 都要新增同一資源，並分別在地化名稱、描述與按鈕文字；簡體中文用中國大陸慣用語，如「导入、备份、本地、源代码」。
+- 工具箱原有的 Blog Toolkit 分類文章仍會自動列在這些可用工具下方。新增或調整分類文章仍依原有 frontmatter 流程，不得手動改生成頁面。
+- 新增後以 `python -m unittest discover -s tests -v` 測試三語系是否都有 Bot 與 GitHub 連結，再由 GitHub Actions 建置部署。
+
+2026-10-23 範例：Grok Bot 備份助理 `https://x.ai/bot/LvdHazZLidr0S3JJAdr8e`，對應原始碼 `https://github.com/company-notes/grok-bot-backup`。
