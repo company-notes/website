@@ -55,8 +55,20 @@ class EditorialTests(unittest.TestCase):
                 self.assertIn('../blog/enterprise-mcp/', page)
                 self.assertIn(resources[locale]['heading'], page)
                 self.assertIn(resources[locale]['resources'][0]['name'], page)
+                self.assertIn('<table class="cn-toolkit-table">', page)
+                self.assertIn('<th scope="col">', page)
+                self.assertIn('<th scope="row" class="cn-toolkit-tool">', page)
+                self.assertIn('src="../assets/toolkit/grok-bot-backup.svg"', page)
+                self.assertIn('alt="'+resources[locale]['resources'][0]['image_alt']+'"', page)
+                self.assertIn('width="192" height="120"', page)
                 self.assertEqual([link['url'] for link in resources[locale]['resources'][0]['links']],
                                  [bot_url, github_url])
+        import xml.etree.ElementTree as ET
+        source_svg=self.root/'shared/assets/toolkit/grok-bot-backup.svg'
+        self.assertTrue(source_svg.is_file())
+        svg_root=ET.parse(source_svg).getroot()
+        self.assertEqual(svg_root.attrib['viewBox'], '0 0 900 560')
+        self.assertEqual(svg_root.attrib['role'], 'img')
 
     def test_new_post_feature_and_draft_exclusion(self):
         paths=[]

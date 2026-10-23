@@ -35,12 +35,27 @@ def render_category_pages(locale,posts):
         entries=[p for p in posts if p['category']==category]
         lines=['---',f'title: {msg[key]}','---','',f'# {msg[key]}','',msg['index'],'']
         if category=='Toolkit':
+            from html import escape
             resources=json.loads((ROOT/'templates'/'toolkit_resources.json').read_text(encoding='utf-8'))[locale]
-            lines += [f'## {resources["heading"]}', '']
+            columns=resources['columns']
+            lines += [f'## {resources["heading"]}', '',
+                      '<div class="cn-toolkit-table-wrap" role="region" aria-label="'+escape(resources['heading'],quote=True)+'">',
+                      '<table class="cn-toolkit-table">',
+                      '<thead><tr>'+''.join(f'<th scope="col">{escape(label)}</th>' for label in columns)+'</tr></thead>',
+                      '<tbody>']
             for item in resources['resources']:
-                lines += [f'### {item["name"]}', '', item['description'], '']
-                lines += [' · '.join(f'[{link["label"]}]({link["url"]})' for link in item['links']), '']
-            lines += [f'## {resources["articles_heading"]}', '']
+                image=f'../{item["image"]}'
+                links='<br>'.join(
+                    f'<a href="{escape(link["url"],quote=True)}" rel="noopener noreferrer">{escape(link["label"])} ↗</a>'
+                    for link in item['links'])
+                lines += [
+                    '<tr>',
+                    f'<th scope="row" class="cn-toolkit-tool"><img src="{escape(image,quote=True)}" alt="{escape(item["image_alt"],quote=True)}" width="192" height="120" loading="lazy"><strong>{escape(item["name"])}</strong></th>',
+                    f'<td class="cn-toolkit-description">{escape(item["description"])}</td>',
+                    f'<td class="cn-toolkit-links">{links}</td>',
+                    '</tr>',
+                ]
+            lines += ['</tbody></table></div>', '', f'## {resources["articles_heading"]}', '']
         if entries:
             for p in entries:
                 badge=f' — **{msg["review"]}**' if p['review'] else ''

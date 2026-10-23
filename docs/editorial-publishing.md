@@ -60,3 +60,7 @@
 - 新增後以 `python -m unittest discover -s tests -v` 測試三語系是否都有 Bot 與 GitHub 連結，再由 GitHub Actions 建置部署。
 
 2026-10-23 範例：Grok Bot 備份助理 `https://x.ai/bot/LvdHazZLidr0S3JJAdr8e`，對應原始碼 `https://github.com/company-notes/grok-bot-backup`。
+
+- 工具箱的「可直接使用的工具」會以**表格**呈現：縮圖與名稱、用途、使用連結。資源要在 `templates/toolkit_resources.json` 加上 `image`、各語系的 `image_alt`，並提供 `columns` 三欄標題。
+- 新工具的 SVG 插畫放在 `shared/assets/toolkit/`；建置程序會自動複製到所有語系的 `assets/toolkit/`。保持為純 SVG 原始檔（具 `viewBox`、`title`、`desc`），文字與色彩清楚且縮小後仍可辨識。
+- 表格 HTML/CSS 分別由 `scripts/render_home.py` 與 `shared/stylesheets/site.css` 控制。以表格呈現便於未來增加多個 Bot／工具；手機版允許橫向捲動。

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title description">
+  <title id="title">Grok Bot backup assistant illustration</title>
+  <desc id="description">A friendly AI robot sends documents and memories into a secure backup box connected to cloud and local storage.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#DDEBFF"/>
+      <stop offset="1" stop-color="#B9D2FE"/>
+    </linearGradient>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2.2" fill="#4B78B8" opacity=".18"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="560" rx="32" fill="url(#background)"/>
+  <rect width="900" height="560" rx="32" fill="url(#dots)"/>
+  <circle cx="88" cy="86" r="76" fill="#F9F0CF" opacity=".95"/>
+  <circle cx="820" cy="498" r="160" fill="#7ECDB7" opacity=".3"/>
+  <path d="M35 445C171 408 225 508 381 462S630 404 868 456" fill="none" stroke="#5A8BBB" stroke-width="5" opacity=".23"/>
+
+  <!-- assistant -->
+  <g stroke="#213F68" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M188 147V113" stroke-width="12"/>
+    <circle cx="188" cy="100" r="17" fill="#F59D75" stroke-width="8"/>
+    <rect x="70" y="152" width="236" height="240" rx="68" fill="#1E436C" stroke-width="10"/>
+    <rect x="89" y="180" width="198" height="153" rx="50" fill="#C9F2DD" stroke-width="7"/>
+    <circle cx="148" cy="253" r="17" fill="#1E436C" stroke="none"/>
+    <circle cx="228" cy="253" r="17" fill="#1E436C" stroke="none"/>
+    <path d="M147 294c20 22 62 22 82 0" fill="none" stroke-width="9"/>
+    <rect x="143" y="355" width="91" height="52" rx="18" fill="#F5CD78" stroke-width="8"/>
+    <path d="M90 373l-25 34M287 372l26 35" stroke-width="11"/>
+    <path d="M145 408l-12 39M231 408l12 39" stroke-width="13"/>
+  </g>
+
+  <!-- information moving from assistant to archive -->
+  <g fill="none" stroke="#254E7F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M331 275h70"/>
+    <path d="m383 260 19 15-19 15"/>
+  </g>
+  <g>
+    <rect x="352" y="182" width="62" height="76" rx="8" transform="rotate(-12 352 182)" fill="#FFFFFF" stroke="#254E7F" stroke-width="5"/>
+    <path d="m365 206 23-5m-21 18 27-6" stroke="#5A83A9" stroke-width="5" stroke-linecap="round"/>
+    <rect x="371" y="311" width="65" height="78" rx="8" transform="rotate(11 371 311)" fill="#F7D889" stroke="#254E7F" stroke-width="5"/>
+    <path d="m384 342 27 5m-31 9 28 5" stroke="#5A83A9" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- central backup archive -->
+  <g stroke="#1E436C" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="446" y="173" width="238" height="239" rx="30" fill="#FFF8E7" stroke-width="10"/>
+    <path d="M465 228h201v144H465z" fill="#F7B87A" stroke-width="8"/>
+    <path d="M480 209h80l20 19h88" fill="#F7D98D" stroke-width="8"/>
+    <rect x="536" y="271" width="61" height="63" rx="15" fill="#244E79" stroke="none"/>
+    <path d="M555 269v-11a12 12 0 0 1 24 0v11" fill="none" stroke="#244E79" stroke-width="11"/>
+    <path d="m553 305 13 11 17-21" fill="none" stroke="#C9F2DD" stroke-width="9"/>
+  </g>
+
+  <!-- two destination cards -->
+  <g fill="none" stroke="#254E7F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M687 260h38v-90h31"/>
+    <path d="M687 319h38v88h31"/>
+    <path d="m744 160 15 10-15 10M744 397l15 10-15 10"/>
+  </g>
+  <g stroke="#1E436C" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="750" y="108" width="122" height="124" rx="26" fill="#FFFFFF" stroke-width="8"/>
+    <path d="M779 183c-12-26 5-38 25-38 8-24 43-18 47 6 26 0 33 33 9 39h-69" fill="#AADFD1" stroke-width="7"/>
+    <rect x="750" y="350" width="122" height="125" rx="26" fill="#FFFFFF" stroke-width="8"/>
+    <rect x="775" y="379" width="72" height="51" rx="10" fill="#C1D8F9" stroke-width="6"/>
+    <path d="M778 415h67m-59 24h50" stroke-width="6"/>
+    <circle cx="835" cy="402" r="5" fill="#1E436C" stroke="none"/>
+  </g>
+
+  <g font-family="Arial,Helvetica,sans-serif" font-weight="800" fill="#1E436C">
+    <text x="65" y="506" font-size="44" letter-spacing="-1">YOUR DATA.</text>
+    <text x="65" y="539" font-size="27" letter-spacing="4">YOUR BACKUP.</text>
+  </g>
+  <rect x="483" y="435" width="175" height="48" rx="24" fill="#1E436C"/>
+  <text x="571" y="467" fill="#FFFFFF" font-size="24" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" letter-spacing="3">BACKUP</text>
+</svg>

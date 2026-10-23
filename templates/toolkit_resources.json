@@ -15,8 +15,15 @@
             "label": "GitHub 原始碼",
             "url": "https://github.com/company-notes/grok-bot-backup"
           }
-        ]
+        ],
+        "image": "assets/toolkit/grok-bot-backup.svg",
+        "image_alt": "AI 助理把文件和記憶備份到雲端與本機的插畫"
       }
+    ],
+    "columns": [
+      "工具",
+      "用途",
+      "使用連結"
     ]
   },
   "en": {
@@ -35,8 +42,15 @@
             "label": "GitHub source code",
             "url": "https://github.com/company-notes/grok-bot-backup"
           }
-        ]
+        ],
+        "image": "assets/toolkit/grok-bot-backup.svg",
+        "image_alt": "An AI assistant backing up documents and memories to cloud and local storage"
       }
+    ],
+    "columns": [
+      "Tool",
+      "What it does",
+      "Links"
     ]
   },
   "zh-hans": {
@@ -55,8 +69,15 @@
             "label": "GitHub 源代码",
             "url": "https://github.com/company-notes/grok-bot-backup"
           }
-        ]
+        ],
+        "image": "assets/toolkit/grok-bot-backup.svg",
+        "image_alt": "AI 助手将文档和记忆备份到云端与本地存储的插画"
       }
+    ],
+    "columns": [
+      "工具",
+      "用途",
+      "使用链接"
     ]
   }
 }
