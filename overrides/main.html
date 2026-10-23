@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block extrahead %}
   {{ super() }}
+  {# Umami tracking: inherited by every page in all three localized builds. #}
+  <script defer src="https://traffic.nuwainfo.com/script.js" data-website-id="4234315f-0690-43ab-98dd-f04ff7cba309"></script>
   {% if page and page.meta and page.meta.status == "review" %}
   <meta name="robots" content="noindex, follow">
   {% endif %}
