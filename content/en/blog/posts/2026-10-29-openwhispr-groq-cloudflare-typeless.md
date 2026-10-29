@@ -1,5 +1,5 @@
 ---
-title: "Build a Free Typeless Alternative with OpenWhispr, Groq, and Cloudflare"
+title: "A Must-Have for Working with an AI Team: Build Your Own Free Typeless Alternative"
 date: 2026-10-29
 slug: openwhispr-groq-cloudflare-typeless
 description: "How I combined OpenWhispr, Groq Whisper, Cloudflare Workers AI, and my own Worker to build a dictation setup that fits my daily use within the free tiers."
@@ -12,7 +12,7 @@ featured_image_alt: "Illustration of connected AI systems"
 status: published
 ---
 
-# Build a Free Typeless Alternative with OpenWhispr, Groq, and Cloudflare
+# A Must-Have for Working with an AI Team: Build Your Own Free Typeless Alternative
 
 These days, a lot of the people we work with have effectively been replaced by AI. And the way we talk to AI is usually by typing. That's become a bottleneck. We used to talk to actual people much faster. At a company built mainly around an AI team, I spend almost every day talking to AI rather than to people. But typing furiously at AI in Codex or Claude CLI, or in Grok Bot, takes up a lot of time.
 
