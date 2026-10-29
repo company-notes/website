@@ -83,6 +83,28 @@ class EditorialTests(unittest.TestCase):
         self.assertIn('.cn-toolkit-col-links { width: 27%; }', css)
         self.assertIn('a.cn-toolkit-action-primary', css)
 
+    def test_openwhispr_article_is_published_in_all_languages_with_sanitized_images(self):
+        slug = 'openwhispr-groq-cloudflare-typeless'
+        images = ['01-groq-whisper.webp', '02-cloudflare-cleanup.webp',
+                  '03-prompt-studio.webp']
+        for name in images:
+            asset = self.root / 'shared/assets/posts/openwhispr-typeless' / name
+            self.assertTrue(asset.is_file(), str(asset))
+            self.assertEqual(asset.read_bytes()[:4], b'RIFF')
+            self.assertEqual(asset.read_bytes()[8:12], b'WEBP')
+        for locale in render_home.LOCALES:
+            with self.subTest(locale=locale):
+                article = self.root / 'content' / locale / 'blog/posts' / f'2026-10-29-{slug}.md'
+                body = article.read_text(encoding='utf-8')
+                self.assertIn('status: published', body)
+                self.assertIn('https://github.com/company-notes/dictation-cleaner', body)
+                self.assertIn('"version": "2.8.0"', body)
+                self.assertEqual(body.count('<!-- more -->'), 1)
+                self.assertNotIn('佔位', body)
+                self.assertNotIn('發文前編輯備忘', body)
+                for image in images:
+                    self.assertIn(f'../../assets/posts/openwhispr-typeless/{image}', body)
+
     def test_new_post_feature_and_draft_exclusion(self):
         paths=[]
         try:
