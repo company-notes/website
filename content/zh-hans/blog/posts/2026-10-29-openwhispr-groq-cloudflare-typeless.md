@@ -1,5 +1,5 @@
 ---
-title: "用 OpenWhispr、Groq 和 Cloudflare，自己搭一套免费的 Typeless 替代方案"
+title: "OpenWhispr：免费替代 Typeless"
 date: 2026-10-29
 slug: openwhispr-groq-cloudflare-typeless
 description: "我用 OpenWhispr、Groq Whisper 和 Cloudflare Workers AI 的 Qwen3，加上自己部署的 Worker，做了一套免费额度足够日常使用的语音输入方案，分享完整配置和实测体验。"
@@ -12,7 +12,7 @@ featured_image_alt: "AI 系统连接的插画封面"
 status: published
 ---
 
-# 用 OpenWhispr、Groq 和 Cloudflare，自己搭一套免费的 Typeless 替代方案
+# OpenWhispr：免费替代 Typeless
 
 这些年，我们的协作对象很大程度上已经从真人变成了 AI。而我们跟 AI 对话，更多时候还是靠打字，这就变成了一个瓶颈。以前我们和真人说话速度很快。在一家主要靠 AI 团队运转的公司里，我几乎每天都在跟 AI 说话，而不是跟真人说话。但在 Codex 或 Claude 的 CLI、Grok Bot 里对着 AI 一顿猛敲，打字真的占掉了不少时间。
 
