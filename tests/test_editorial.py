@@ -114,7 +114,7 @@ class EditorialTests(unittest.TestCase):
         self.assertEqual(video.read_bytes()[4:8], b'ftyp')
         self.assertGreater(video.stat().st_size, 100000)
         self.assertTrue(poster.is_file())
-        self.assertEqual(poster.read_bytes()[:2], b'\\xff\\xd8')
+        self.assertEqual(poster.read_bytes()[:2], bytes([0xff, 0xd8]))
         anchors = {
             'zh-hant': ('因此我就在研究有沒有簡單又便宜的方法。', '最後的成果'),
             'en': ('So I started looking for something simpler and cheaper.', 'The final result'),
