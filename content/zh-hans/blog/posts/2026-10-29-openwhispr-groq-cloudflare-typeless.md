@@ -68,7 +68,7 @@ Typeless 的出现，确实让我们的效率提升了不少。以前这类语�
 
 它也是开源项目：[OpenWhispr GitHub](https://github.com/OpenWhispr/openwhispr)。
 
-第一次启动，跟着设置向导走完就行。因为我们打算用自己的 API Key，所以不需要为了基础语音输入额外订阅 OpenWhispr Cloud。
+第一次启动，跟着设置向导走完就行。因为我们打算用自己的 API Key，所以不需要为了基础语音输入额外订阅 OpenWhispr Cloud。你甚至连 OpenWhispr 账号都不用注册。
 
 安装完成后进入设置。我们先配置语音识别，再配置 AI 文字整理。这样出了问题也更容易判断是哪一环没弄好。
 

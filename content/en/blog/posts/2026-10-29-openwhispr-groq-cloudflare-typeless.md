@@ -69,7 +69,7 @@ Go to the [official OpenWhispr download page](https://openwhispr.com/download) a
 
 It's also open source: [OpenWhispr on GitHub](https://github.com/OpenWhispr/openwhispr).
 
-Follow the setup wizard on first launch. Since we'll use our own API keys, there's no need to subscribe to OpenWhispr Cloud just to get basic voice input working.
+Follow the setup wizard on first launch. Since we'll use our own API keys, there's no need to subscribe to OpenWhispr Cloud just to get basic voice input working. You don't even need to create an OpenWhispr account.
 
 Once it's installed, open Settings. We'll configure speech recognition first, then AI text cleanup, so that if something goes wrong, it's easier to tell which part is responsible.
 

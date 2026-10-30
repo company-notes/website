@@ -68,7 +68,7 @@ status: published
 
 它也有開源專案：[OpenWhispr GitHub](https://github.com/OpenWhispr/openwhispr)。
 
-第一次啟動時，按照設定精靈走完即可。因為我們打算自己使用 API Key，所以不用為了基本語音輸入另外訂閱 OpenWhispr Cloud。
+第一次啟動時，按照設定精靈走完即可。因為我們打算自己使用 API Key，所以不用為了基本語音輸入另外訂閱 OpenWhispr Cloud。你甚至連帳號都不用建。
 
 安裝好後，進入設定。我們先設定語音辨識，再設定 AI 文字整理，這樣有問題的時候比較容易知道是哪一段出了錯。
 
