@@ -18,6 +18,14 @@ These days, a lot of the people we work with have effectively been replaced by A
 
 Typeless gave us an enormous boost in efficiency. Voice input like this used to struggle with recognition accuracy. Now, with LLMs cleaning up text behind the scenes and advances in speech models, dictation is much better than it used to be, and several times faster than typing. But here's the problem: Typeless is expensive. So I started looking for something simpler and cheaper.
 
+<figure class="cn-post-video">
+  <video controls playsinline preload="metadata" width="832" height="710" poster="../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg" aria-label="Demonstration of the finished OpenWhispr dictation setup">
+    <source src="../../assets/posts/openwhispr-typeless/My_Typeless.mp4" type="video/mp4">
+    Your browser cannot play this video. Download the MP4 instead. <a href="../../assets/posts/openwhispr-typeless/My_Typeless.mp4">MP4</a>
+  </video>
+  <figcaption>The final result</figcaption>
+</figure>
+
 First I tried Handy. Its big selling point is that it can run entirely locally, with local models and no cloud involved. That's great for privacy. The problem is, my GPU is a fossil, and RAM is pretty tight too. After testing for a while, I found that the fast, lightweight models were basically garbage at recognition, especially when technical jargon and everyday conversation are mixed together, as they are for us. And the models that actually recognized speech well ate all my RAM. So I started exploring free cloud models instead.
 
 After looking into OpenLess and OpenWhispr, I found OpenWhispr's user experience far better than OpenLess. That got me thinking: could I use OpenWhispr with Cloudflare Workers AI to clean up the sentences, and Groq's Whisper for speech recognition? Whisper on Groq is fast, and its free tier is enough for my use. For individual use, the free tiers of both have been enough for my daily work.

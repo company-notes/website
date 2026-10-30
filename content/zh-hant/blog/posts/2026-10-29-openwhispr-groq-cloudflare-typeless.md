@@ -18,6 +18,14 @@ status: published
 
 而 Typeless 的出現，給了我們很大的效率提升。過去這類的語音輸入法都有一些辨識能力不足的問題。現在透過 LLM 在背後校正，還有語音模型的進步，這樣的打字輸入已經比以前好很多了，速度足足是打字的好幾倍以上。但問題來了，Typeless 很貴。因此我就在研究有沒有簡單又便宜的方法。
 
+<figure class="cn-post-video">
+  <video controls playsinline preload="metadata" width="832" height="710" poster="../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg" aria-label="OpenWhispr 語音輸入最後成果示範">
+    <source src="../../assets/posts/openwhispr-typeless/My_Typeless.mp4" type="video/mp4">
+    你的瀏覽器無法播放影片，可直接下載 MP4。 <a href="../../assets/posts/openwhispr-typeless/My_Typeless.mp4">MP4</a>
+  </video>
+  <figcaption>最後的成果</figcaption>
+</figure>
+
 一開始我試用了 Handy。Handy 的訴求是可以完全在本機進行，使用本機的模型，不必碰到雲端，這對隱私是非常好的。可問題就在於我的 GPU 是古董啊，RAM 也很吃緊。測試了一陣子，速度快又不吃資源的模型，辨識能力基本都是垃圾。尤其是像我們這種技術名詞和正常對話都會交錯的狀況。但好的辨識模型，直接把我的 RAM 都吃光了。因此我轉而開始研究雲端免費模型的可能。
 
 在研究了 OpenLess、OpenWhispr 之後，OpenWhispr 的使用體驗完勝 OpenLess。所以我就想，我可以透過 OpenWhispr，使用 Cloudflare 的 Workers AI 對句子進行校正；至於語音模型的部分，使用 Groq 的 Whisper，速度又快，免費方案也足夠用。對於個人使用，這兩個的免費方案都足以支應日常的工作及使用。

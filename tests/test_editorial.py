@@ -105,6 +105,35 @@ class EditorialTests(unittest.TestCase):
                 for image in images:
                     self.assertIn(f'../../assets/posts/openwhispr-typeless/{image}', body)
 
+    def test_openwhispr_result_video_is_embedded_after_the_cost_paragraph(self):
+        from pathlib import Path
+        root = self.root / 'shared/assets/posts/openwhispr-typeless'
+        video = root / 'My_Typeless.mp4'
+        poster = root / 'My_Typeless_poster.jpg'
+        self.assertTrue(video.is_file())
+        self.assertEqual(video.read_bytes()[4:8], b'ftyp')
+        self.assertGreater(video.stat().st_size, 100000)
+        self.assertTrue(poster.is_file())
+        self.assertEqual(poster.read_bytes()[:2], b'\\xff\\xd8')
+        anchors = {
+            'zh-hant': ('因此我就在研究有沒有簡單又便宜的方法。', '最後的成果'),
+            'en': ('So I started looking for something simpler and cheaper.', 'The final result'),
+            'zh-hans': ('所以我就开始琢磨，有没有简单又便宜的办法。', '最终成果'),
+        }
+        for locale, (intro_end, caption) in anchors.items():
+            with self.subTest(locale=locale):
+                path = self.root / 'content' / locale / 'blog/posts/2026-10-29-openwhispr-groq-cloudflare-typeless.md'
+                body = path.read_text(encoding='utf-8')
+                video_path = '../../assets/posts/openwhispr-typeless/My_Typeless.mp4'
+                poster_path = '../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg'
+                self.assertEqual(body.count('class="cn-post-video"'), 1)
+                self.assertIn(f'poster="{poster_path}"', body)
+                self.assertIn(f'<source src="{video_path}" type="video/mp4">', body)
+                self.assertIn(f'<figcaption>{caption}</figcaption>', body)
+                self.assertLess(body.index(intro_end), body.index('<figure class="cn-post-video">'))
+                self.assertLess(body.index('</figure>'), body.index('<!-- more -->'))
+                self.assertIn('controls playsinline preload="metadata"', body)
+
     def test_new_post_feature_and_draft_exclusion(self):
         paths=[]
         try:

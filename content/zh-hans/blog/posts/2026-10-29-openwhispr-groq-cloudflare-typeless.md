@@ -18,6 +18,14 @@ status: published
 
 Typeless 的出现，确实让我们的效率提升了不少。以前这类语音输入法总有识别不准的问题。现在有 LLM 在背后做校正，加上语音模型本身也进步了，这种输入方式已经比以前好用很多，速度更是打字的好几倍。但问题来了：Typeless 很贵。所以我就开始琢磨，有没有简单又便宜的办法。
 
+<figure class="cn-post-video">
+  <video controls playsinline preload="metadata" width="832" height="710" poster="../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg" aria-label="OpenWhispr 语音输入最终成果演示">
+    <source src="../../assets/posts/openwhispr-typeless/My_Typeless.mp4" type="video/mp4">
+    浏览器无法播放视频，可直接下载 MP4。 <a href="../../assets/posts/openwhispr-typeless/My_Typeless.mp4">MP4</a>
+  </video>
+  <figcaption>最终成果</figcaption>
+</figure>
+
 一开始我试了 Handy。它的卖点是完全在本地运行，使用本地模型，不用碰云端，这对隐私非常好。可问题是我的 GPU 已经是老古董了啊，内存也很吃紧。折腾了一阵子，速度快又不怎么占资源的模型，识别能力基本都是垃圾。尤其是像我们这种技术术语和日常聊天经常混在一起的情况。但识别效果好的模型，直接把我的内存吃光了。所以我转头开始研究云端免费模型的可能性。
 
 研究过 OpenLess 和 OpenWhispr 之后，我觉得 OpenWhispr 的使用体验完全胜过 OpenLess。于是我就想：能不能用 OpenWhispr，再让 Cloudflare 的 Workers AI 整理句子？至于语音模型，交给 Groq 的 Whisper，速度快，免费套餐对我也够用了。就个人使用而言，这两边的免费额度足够支撑我日常的工作和使用。
