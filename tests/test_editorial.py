@@ -127,12 +127,18 @@ class EditorialTests(unittest.TestCase):
                 video_path = '../../assets/posts/openwhispr-typeless/My_Typeless.mp4'
                 poster_path = '../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg'
                 self.assertEqual(body.count('class="cn-post-video"'), 1)
+                self.assertIn('max-width:520px;margin:1.25rem auto 1.65rem;text-align:center', body)
+                self.assertIn('width="520" height="444"', body)
+                self.assertIn('style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;"', body)
                 self.assertIn(f'poster="{poster_path}"', body)
                 self.assertIn(f'<source src="{video_path}" type="video/mp4">', body)
                 self.assertIn(f'<figcaption>{caption}</figcaption>', body)
                 self.assertLess(body.index(intro_end), body.index('<figure class="cn-post-video">'))
                 self.assertLess(body.index('</figure>'), body.index('<!-- more -->'))
                 self.assertIn('controls playsinline preload="metadata"', body)
+        css=(self.root / 'shared/stylesheets/site.css').read_text(encoding='utf-8')
+        self.assertIn('max-width: 520px;', css)
+        self.assertIn('margin: 1.25rem auto 1.65rem;', css)
 
     def test_new_post_feature_and_draft_exclusion(self):
         paths=[]

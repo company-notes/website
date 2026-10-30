@@ -447,11 +447,13 @@ a:active,button:active { opacity:.83; }
   .cn-toolkit-identity img { max-width: 160px; }
 }
 
-/* Demonstration clip in the OpenWhispr field notes, with a quiet caption. */
+/* Compact demonstration clip in the OpenWhispr field notes. Keep it centered even on narrow screens. */
 .md-typeset .cn-post-video {
-  width: min(100%, 580px);
-  max-width: 100%;
-  margin: 1.5rem auto 2rem;
+  box-sizing: border-box;
+  width: calc(100% - 1rem);
+  max-width: 520px;
+  margin: 1.25rem auto 1.65rem;
+  text-align: center;
 }
 .md-typeset .cn-post-video video {
   box-sizing: border-box;
@@ -459,7 +461,8 @@ a:active,button:active { opacity:.83; }
   width: 100%;
   height: auto;
   aspect-ratio: 832 / 710;
-  margin: 0;
+  max-width: 520px;
+  margin: 0 auto;
   border: 1px solid var(--color-rule);
   border-radius: 12px;
   background: #101820;

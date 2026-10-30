@@ -18,8 +18,8 @@ status: published
 
 Typeless 的出现，确实让我们的效率提升了不少。以前这类语音输入法总有识别不准的问题。现在有 LLM 在背后做校正，加上语音模型本身也进步了，这种输入方式已经比以前好用很多，速度更是打字的好几倍。但问题来了：Typeless 很贵。所以我就开始琢磨，有没有简单又便宜的办法。
 
-<figure class="cn-post-video">
-  <video controls playsinline preload="metadata" width="832" height="710" poster="../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg" aria-label="OpenWhispr 语音输入最终成果演示">
+<figure class="cn-post-video" style="box-sizing:border-box;width:calc(100% - 1rem);max-width:520px;margin:1.25rem auto 1.65rem;text-align:center">
+  <video controls playsinline preload="metadata" width="520" height="444" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;" poster="../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg" aria-label="OpenWhispr 语音输入最终成果演示">
     <source src="../../assets/posts/openwhispr-typeless/My_Typeless.mp4" type="video/mp4">
     浏览器无法播放视频，可直接下载 MP4。 <a href="../../assets/posts/openwhispr-typeless/My_Typeless.mp4">MP4</a>
   </video>

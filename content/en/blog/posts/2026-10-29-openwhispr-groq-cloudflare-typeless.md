@@ -18,8 +18,8 @@ These days, a lot of the people we work with have effectively been replaced by A
 
 Typeless gave us an enormous boost in efficiency. Voice input like this used to struggle with recognition accuracy. Now, with LLMs cleaning up text behind the scenes and advances in speech models, dictation is much better than it used to be, and several times faster than typing. But here's the problem: Typeless is expensive. So I started looking for something simpler and cheaper.
 
-<figure class="cn-post-video">
-  <video controls playsinline preload="metadata" width="832" height="710" poster="../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg" aria-label="Demonstration of the finished OpenWhispr dictation setup">
+<figure class="cn-post-video" style="box-sizing:border-box;width:calc(100% - 1rem);max-width:520px;margin:1.25rem auto 1.65rem;text-align:center">
+  <video controls playsinline preload="metadata" width="520" height="444" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;" poster="../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg" aria-label="Demonstration of the finished OpenWhispr dictation setup">
     <source src="../../assets/posts/openwhispr-typeless/My_Typeless.mp4" type="video/mp4">
     Your browser cannot play this video. Download the MP4 instead. <a href="../../assets/posts/openwhispr-typeless/My_Typeless.mp4">MP4</a>
   </video>

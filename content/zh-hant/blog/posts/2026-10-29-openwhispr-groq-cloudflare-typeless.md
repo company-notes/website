@@ -18,8 +18,8 @@ status: published
 
 而 Typeless 的出現，給了我們很大的效率提升。過去這類的語音輸入法都有一些辨識能力不足的問題。現在透過 LLM 在背後校正，還有語音模型的進步，這樣的打字輸入已經比以前好很多了，速度足足是打字的好幾倍以上。但問題來了，Typeless 很貴。因此我就在研究有沒有簡單又便宜的方法。
 
-<figure class="cn-post-video">
-  <video controls playsinline preload="metadata" width="832" height="710" poster="../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg" aria-label="OpenWhispr 語音輸入最後成果示範">
+<figure class="cn-post-video" style="box-sizing:border-box;width:calc(100% - 1rem);max-width:520px;margin:1.25rem auto 1.65rem;text-align:center">
+  <video controls playsinline preload="metadata" width="520" height="444" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;" poster="../../assets/posts/openwhispr-typeless/My_Typeless_poster.jpg" aria-label="OpenWhispr 語音輸入最後成果示範">
     <source src="../../assets/posts/openwhispr-typeless/My_Typeless.mp4" type="video/mp4">
     你的瀏覽器無法播放影片，可直接下載 MP4。 <a href="../../assets/posts/openwhispr-typeless/My_Typeless.mp4">MP4</a>
   </video>
