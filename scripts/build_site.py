@@ -13,6 +13,7 @@ import subprocess
 import sys
 import yaml
 from render_home import render_homepages
+from seo_postprocess import finalize
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCALES = {
@@ -63,6 +64,8 @@ def build():
             subprocess.run([sys.executable, '-m', 'mkdocs', 'build', '--config-file', str(config_path), '--clean'], cwd=ROOT, check=True)
         finally:
             config_path.unlink(missing_ok=True)
+    # Rewrite metadata only; all visible page bodies remain byte-for-byte intact.
+    finalize(site_dir)
     # GitHub Pages recognizes the custom domain after it is also configured in Settings > Pages.
     (site_dir / 'CNAME').write_text('company-notes.com\n', encoding='utf-8')
     (site_dir / '.nojekyll').write_text('', encoding='utf-8')

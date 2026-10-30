@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # true per-file lastmod, never a build timestamp
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -38,6 +40,8 @@ jobs:
           test -f site/en/index.html
           test -f site/zh-hans/index.html
           test -f site/CNAME
+      - name: Re-audit generated SEO metadata and sitemaps
+        run: python scripts/check_seo.py
       - name: Configure GitHub Pages
         # Pages must already be enabled in Settings > Pages (Source: GitHub Actions).
         uses: actions/configure-pages@v5
