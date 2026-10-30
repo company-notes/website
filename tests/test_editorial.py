@@ -133,7 +133,7 @@ class EditorialTests(unittest.TestCase):
                 self.assertIn(f'poster="{poster_path}"', body)
                 self.assertIn(f'<source src="{video_path}" type="video/mp4">', body)
                 self.assertIn(f'<figcaption>{caption}</figcaption>', body)
-                self.assertLess(body.index(intro_end), body.index('<figure class="cn-post-video">'))
+                self.assertLess(body.index(intro_end), body.index('<figure class="cn-post-video"'))
                 self.assertLess(body.index('</figure>'), body.index('<!-- more -->'))
                 self.assertIn('controls playsinline preload="metadata"', body)
         css=(self.root / 'shared/stylesheets/site.css').read_text(encoding='utf-8')
