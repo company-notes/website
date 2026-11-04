@@ -28,9 +28,9 @@ So I started wondering: **what if Grok Bot recorded the entire process whenever 
 
 That's why I built [Agent Recorder MCP](https://github.com/company-notes/agent-recorder-mcp).
 
-Once Grok Bot has it set up, it can start recording before it uses the browser and save what happened on its own screen as an MP4. When the job is done, it sends me a link through FastFileLink. On an ordinary network it prefers P2P transfer; in some restricted environments it uses a relay instead.
+Once Grok Bot has it set up, it can start recording before it uses the browser and save what happened on its own screen as an MP4. When the job is done, it bundles the video and a `summary.md` action summary into a ZIP and sends me a download link through FastFileLink. On an ordinary network it prefers P2P transfer; in some restricted environments it uses a relay instead.
 
-The video is stored on the agent's machine first. **Only after I finish downloading it and the transfer service confirms completion does the local recording get deleted.** So it doesn't keep filling up the agent's disk. If I want to save a copy, I can also have it uploaded through a connected Google Drive account.
+Both the video and ZIP are stored on the agent's machine first. **Only after I finish downloading the ZIP and the transfer service confirms completion are the local MP4 and ZIP deleted.** So it doesn't keep filling up the agent's disk. If I want to save a copy, I can also have it uploaded through a connected Google Drive account.
 
 <!-- more -->
 
@@ -42,15 +42,15 @@ I wrote a Skill that tells Grok Bot how to set up the recorder, and when to star
 
 All you have to do is send Grok Bot this link:
 
-**[Agent Recorder Skill v0.2.2](https://raw.githubusercontent.com/company-notes/agent-recorder-mcp/v0.2.2/skills/agent-session-recording/SKILL.md)**
+**[Agent Recorder Skill (latest)](https://raw.githubusercontent.com/company-notes/agent-recorder-mcp/master/skills/agent-session-recording/SKILL.md)**
 
 Then tell it:
 
-> Please read and install this Skill, and follow its instructions to set up the recording feature. Whenever you operate a browser for me, start recording first and give me the replay link and a summary when you're done. If you need any permission or confirmation from me, just ask. Finally, make one short test recording to confirm the video plays correctly.
+> Please read and install this Skill, and follow its instructions to set up the recording feature. Whenever you operate a browser for me, start recording first and give me a ZIP download link containing the recording and a summary, and tell me what you did when you're done. If you need any permission or confirmation from me, just ask. Finally, make one short test recording to confirm the ZIP contains a playable video and summary.
 
 That's it. Grok Bot follows the installation steps supported by its environment and asks you to approve anything that requires permission. If the environment doesn't support recording, it should tell you rather than pretend everything is installed.
 
-Once setup is complete, have it open a simple webpage as a test and check whether you actually receive a playable video.
+Once setup is complete, have it open a simple webpage as a test and check whether you actually receive a ZIP containing a playable video and summary.
 
 ## Do I have to do anything differently afterward?
 
@@ -58,15 +58,15 @@ No. I just keep asking Grok Bot to work the way I always have.
 
 I might ask it to sign in to a website, check some settings, or handle the clicking I'd otherwise have to do myself. As long as it follows the Skill, it starts recording before touching the browser and stops when the job is finished.
 
-At the end, I get more than a message saying the job is done. I get **a replay link and an action summary**. The summary roughly covers the steps it took, the systems it worked with, any problems it hit, and how it dealt with them.
+At the end, I get more than a message saying the job is done. I get **a ZIP download link containing the recording and action summary**, along with a short report. The ZIP includes the MP4 and `summary.md`. The summary roughly covers the steps it took, the systems it worked with, any problems it hit, and how it dealt with them.
 
-If I want the details, I can open the video. No need to keep asking, “Wait, which button did you click?”
+If I want the details, I can download the ZIP and open the video inside. No need to keep asking, “Wait, which button did you click?”
 
 ## Won't all these recordings take up space?
 
 Not permanently, by default.
 
-The MP4 starts out on the agent's own machine and is shared through FastFileLink. Once the download completes, that local file is removed. The video isn't fed into the AI model, and it isn't deleted just because a link was created.
+The MP4 is recorded on the agent's machine, then packaged with the action summary into a ZIP and shared through FastFileLink. Once the ZIP download completes, both the local MP4 and ZIP are removed. The video isn't fed into the AI model, and the files aren't deleted just because a link was created. The recording gets a descriptive filename based on the task and start time, too.
 
 I can also choose to have it saved to Google Drive. In that case, the agent's connected Google Drive tool handles the upload.
 
