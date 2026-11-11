@@ -8,11 +8,17 @@
   {% endif %}
   <script>
     (function () {
-      /* Apply the saved page colour before paint and localize direct content links. */
+      /* Choose one background per tab, before paint: paper white 75%, other five 5% each. */
       var colors = {warm:1,white:1,cream:1,mist:1,sage:1,blush:1};
+      var paperKey = 'company-notes:paper-session';
       var selected = null;
-      try { selected = localStorage.getItem('company-notes:paper'); } catch (_) {}
-      if (colors[selected]) document.documentElement.dataset.cnPaper = selected;
+      try { selected = sessionStorage.getItem(paperKey); } catch (_) {}
+      if (!colors[selected]) {
+        var alternatives = ['warm','cream','mist','sage','blush'];
+        selected = Math.random() < 0.75 ? 'white' : alternatives[Math.floor(Math.random() * alternatives.length)];
+        try { sessionStorage.setItem(paperKey, selected); } catch (_) {}
+      }
+      document.documentElement.dataset.cnPaper = selected;
 
       var path = location.pathname;
       // A language prefix is an explicit visitor choice: never override it.

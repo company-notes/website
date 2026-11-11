@@ -12,6 +12,9 @@ const bootstrap = match[1];
 function visit(pathname, options = {}) {
   let redirectedTo = null;
   const appliedColors = {};
+  const session = options.session || {};
+  const randomValues = options.randomValues || [options.random ?? 0.25];
+  let randomIndex = 0;
   const source = {
     location: {
       pathname,
@@ -26,14 +29,22 @@ function visit(pathname, options = {}) {
     localStorage: {
       getItem(key) {
         if (key === 'company-notes:language') return options.savedLanguage || null;
-        if (key === 'company-notes:paper') return options.paper || null;
+        if (key === 'company-notes:paper') return options.legacyPaper || null;
         return null;
       },
+    },
+    sessionStorage: {
+      getItem(key) { return session[key] || null; },
+      setItem(key, value) { session[key] = String(value); },
+    },
+    Math: {
+      random() { return randomValues[Math.min(randomIndex++, randomValues.length - 1)]; },
+      floor: Math.floor,
     },
     document: { documentElement: { dataset: appliedColors } },
   };
   vm.runInNewContext(bootstrap, source, { timeout: 1500 });
-  return { redirectedTo, paper: appliedColors.cnPaper || null };
+  return { redirectedTo, paper: appliedColors.cnPaper || null, session };
 }
 
 const checks = [
@@ -59,5 +70,22 @@ for (const [label, pathname, options, expected] of checks) {
   const actual = visit(pathname, options).redirectedTo;
   assert.equal(actual, expected, label);
 }
-assert.equal(visit('/blog/grok-bot-backup/', { savedLanguage: 'en', paper: 'sage' }).paper, 'sage');
-console.log(`Locale redirects: ${checks.length} cases passed; paper preference preserved.`);
+// A new session draws once: white 75%, each of five alternatives 5%.
+assert.equal(visit('/', { randomValues: [0] }).paper, 'white');
+assert.equal(visit('/', { randomValues: [0.749999] }).paper, 'white');
+const alternatives = ['warm', 'cream', 'mist', 'sage', 'blush'];
+for (let index = 0; index < alternatives.length; index++) {
+  const result = visit('/', { randomValues: [0.75, (index + 0.5) / alternatives.length] });
+  assert.equal(result.paper, alternatives[index]);
+  assert.equal(result.session['company-notes:paper-session'], alternatives[index]);
+}
+const session = {};
+assert.equal(visit('/', { session, randomValues: [0.8, 0.5] }).paper, 'mist');
+assert.equal(visit('/en/blog/grok-bot-backup/', { session, randomValues: [0.01] }).paper, 'mist');
+assert.equal(visit('/zh-hans/', { session, randomValues: [0.01] }).paper, 'mist');
+assert.equal(visit('/', { legacyPaper: 'sage', randomValues: [0.1] }).paper, 'white');
+const pickerSource = fs.readFileSync(path.join(__dirname, '..', 'shared/javascripts/site.js'), 'utf8');
+assert.ok(pickerSource.includes("saveSessionPaper(value)"));
+assert.ok(pickerSource.includes("document.documentElement.dataset.cnPaper"));
+assert.ok(!pickerSource.includes("localStorage.setItem(PAPER_SESSION_KEY"));
+console.log(`Locale redirects: ${checks.length} cases passed; weighted session paper selection passed.`);

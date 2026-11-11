@@ -1,13 +1,13 @@
 /* Company Notes: localized navigation, paper previews, and homepage reading carousel. */
 (function () {
   'use strict';
-  const PAPER_KEY = 'company-notes:paper';
+  const PAPER_SESSION_KEY = 'company-notes:paper-session';
   const LANGUAGE_KEY = 'company-notes:language';
-  const DEFAULT_PAPER = 'warm'; // Once a default is chosen, change this and the token fallback.
+  const DEFAULT_PAPER = 'white'; // Fallback when the early head script has not chosen a colour.
   const papers = new Set(['warm', 'white', 'cream', 'mist', 'sage', 'blush']);
 
-  function readPreference(key) { try { return window.localStorage.getItem(key); } catch (_) { return null; } }
-  function writePreference(key, value) { try { window.localStorage.setItem(key, value); } catch (_) {} }
+  function writeLanguagePreference(key, value) { try { window.localStorage.setItem(key, value); } catch (_) {} }
+  function saveSessionPaper(value) { try { window.sessionStorage.setItem(PAPER_SESSION_KEY, value); } catch (_) {} }
 
   function setupLanguageLinks() {
     const path = window.location.pathname.replace(/^\/(en|zh-hans)(?=\/)/, '') || '/';
@@ -19,7 +19,7 @@
       const locale = url.pathname === '/en/' ? 'en' : url.pathname === '/zh-hans/' ? 'zh-hans' : 'zh-hant';
       url.pathname = destinations[url.pathname];
       link.href = url.toString();
-      link.addEventListener('click', function () { writePreference(LANGUAGE_KEY, locale); });
+      link.addEventListener('click', function () { writeLanguagePreference(LANGUAGE_KEY, locale); });
     });
   }
 
@@ -78,9 +78,10 @@
       if (!papers.has(value)) return;
       document.documentElement.dataset.cnPaper = value;
       for (const btn of buttons) btn.setAttribute('aria-pressed', String(btn.dataset.cnPaperOption === value));
-      if (save) writePreference(PAPER_KEY, value);
+      if (save) saveSessionPaper(value);
     }
-    choose(papers.has(readPreference(PAPER_KEY)) ? readPreference(PAPER_KEY) : DEFAULT_PAPER, false);
+    const initialPaper = document.documentElement.dataset.cnPaper;
+    choose(papers.has(initialPaper) ? initialPaper : DEFAULT_PAPER, false);
     function open(value) {
       panel.hidden = !value;
       toggle.setAttribute('aria-expanded',String(value));
