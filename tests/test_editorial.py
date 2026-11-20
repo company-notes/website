@@ -98,7 +98,9 @@ class EditorialTests(unittest.TestCase):
                 body = article.read_text(encoding='utf-8')
                 self.assertIn('status: published', body)
                 self.assertIn('https://github.com/company-notes/dictation-cleaner', body)
-                self.assertIn('"version": "2.8.0"', body)
+                # The linked Worker evolves independently; require a concrete version example
+                # without tying an editorial test to an obsolete release number.
+                self.assertRegex(body, r'"version":\s*"\d+\.\d+\.\d+"')
                 self.assertEqual(body.count('<!-- more -->'), 1)
                 self.assertNotIn('佔位', body)
                 self.assertNotIn('發文前編輯備忘', body)
