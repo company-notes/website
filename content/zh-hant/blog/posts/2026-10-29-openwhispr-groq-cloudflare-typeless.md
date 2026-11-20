@@ -2,7 +2,7 @@
 title: "和 AI 團隊工作的神器：自己搭一套免費的 Typeless 替代方案"
 date: 2026-10-29
 slug: openwhispr-groq-cloudflare-typeless
-description: "我用 OpenWhispr、Groq Whisper 和 Cloudflare Workers AI 的 Qwen3 搭配自建 Worker，做出免費額度足夠日常使用的語音輸入方案，分享完整設定與實測心得。"
+description: "我用 OpenWhispr、Groq Whisper 和 Cloudflare Workers AI 搭配自建 Worker，做出免費額度足夠日常使用的語音輸入方案，分享完整設定與實測心得。"
 categories: [Field Notes]
 tags: [OpenWhispr, Groq, Cloudflare, Workers-AI, speech-to-text, dictation]
 featured: true
@@ -42,7 +42,7 @@ status: published
 
 1. **OpenWhispr**：Windows 上的語音輸入工具，負責錄音、快捷鍵，以及把最後的文字輸入到你正在使用的程式裡。
 2. **Groq Whisper**：把聲音轉成文字。我目前使用 `whisper-large-v3`，如果更在意速度，也可以試試 `whisper-large-v3-turbo`。
-3. **Cloudflare Workers AI + Qwen3**：把辨識完的文字再整理一次，移除贅字、修正標點和明顯口誤。中間透過一個 Cloudflare Worker，讓 OpenWhispr 可以用相容 OpenAI 的方式呼叫它。
+3. **Cloudflare Workers AI + Gemma 4**：把辨識完的文字再整理一次，移除贅字、修正標點和明顯口誤。中間透過一個 Cloudflare Worker，讓 OpenWhispr 可以用相容 OpenAI 的方式呼叫它。
 
 流程大概是：
 
@@ -54,7 +54,7 @@ status: published
              ↓
    Cloudflare Worker（轉接）
              ↓
- Cloudflare Qwen3-30B-A3B-FP8
+ Cloudflare Gemma 4 26B-A4B
     修正贅字、標點和口誤
              ↓
     OpenWhispr 輸入文字
@@ -101,13 +101,13 @@ status: published
 
 接下來要處理的是把轉錄後的文字變得更自然。
 
-我使用 Cloudflare Workers AI 上的 Qwen3：
+Cloudflare [已於 2026 年 11 月 20 日淘汰 Qwen3-30B-A3B-FP8](https://developers.cloudflare.com/changelog/post/2026-11-05-planned-model-deprecations/)，所以本文的設定改用官方推薦的 Gemma 4 26B-A4B，也可以在 OpenWhispr 選取其他可用的 Cloudflare 文字生成模型。
 
 ```text
-@cf/qwen/qwen3-30b-a3b-fp8
+@cf/google/gemma-4-26b-a4b-it
 ```
 
-但直接把 Workers AI 的網址填進 OpenWhispr，不一定能完整相容，尤其是 Qwen3 的思考輸出與一般文字輸出的格式。我實際測試時，就碰過 API 明明回傳 HTTP 200，最後卻沒有正常文字的問題。
+但直接把 Workers AI 的網址填進 OpenWhispr，不一定能完整相容，尤其是模型的思考輸出與一般文字輸出的格式。我實際測試時，就碰過 API 明明回傳 HTTP 200，最後卻沒有正常文字的問題。
 
 所以我在中間放了一個 **Cloudflare Worker** 來轉接請求，並處理回應格式與相關的相容性問題。
 
@@ -148,7 +148,7 @@ Account ID 是帳號識別資料；API Token 則是金鑰，**不要貼在公開
 
 | 選用變數 | 預設值 |
 | --- | --- |
-| `CHAT_MODEL` | `@cf/qwen/qwen3-30b-a3b-fp8` |
+| `CHAT_MODEL` | `@cf/google/gemma-4-26b-a4b-it` |
 | `GROQ_CHAT_MODEL` | `qwen/qwen3.8-27b` |
 | `ASR_MODEL` | `@cf/openai/whisper-large-v3-turbo` |
 | `DEFAULT_ASR_LANGUAGE` | `zh` |
@@ -168,7 +168,7 @@ https://你的-worker.你的帳號.workers.dev
 https://你的-worker.你的帳號.workers.dev/health
 ```
 
-本文使用的程式版本為 **v2.8**。設定正確時，`/health` 應該回傳包含 `"ok": true` 和 `"version": "2.8.0"` 的 JSON。如果看到 `503` 並提示 `CF_ACCOUNT_ID`，通常表示環境變數尚未設定或格式有誤。
+設定正確時，`/health` 應該回傳包含 `"ok": true` 和目前程式版本（例如 `"version": "3.1.0"`）的 JSON。如果看到 `503` 並提示 `CF_ACCOUNT_ID`，通常表示環境變數尚未設定或格式有誤。
 
 **注意：** 接下來在 OpenWhispr 裡使用的網址要加上 `/v1`，但測試 `/health` 時不需要。
 
@@ -188,15 +188,15 @@ https://你的-worker.你的帳號.workers.dev/health
 | 供應方式 | 自架主機 |
 | 端點 URL | `https://你的-worker.你的帳號.workers.dev/v1` |
 | API Key | 前面建立的 Cloudflare Workers AI Token（由 Worker 直接轉送） |
-| 模型 | `@cf/qwen/qwen3-30b-a3b-fp8` |
+| 模型 | `@cf/google/gemma-4-26b-a4b-it` |
 | 停用思考輸出 | 開啟 |
 
 ![OpenWhispr 聽寫清理設定，私人端點與 API Key 已遮蔽](../../assets/posts/openwhispr-typeless/02-cloudflare-cleanup.webp)
 
-填好之後，按 **「重新整理」** 取得可用模型清單。如果一切正常，就能看到：
+填好之後，按 **「重新整理」** 取得可用模型清單。找到下面這個模型（本文的操作截圖仍是原本使用 Qwen3 時的畫面，模型名稱請以這裡為準）：
 
 ```text
-@cf/qwen/qwen3-30b-a3b-fp8
+@cf/google/gemma-4-26b-a4b-it
 ```
 
 選取這個模型，並開啟 **「停用思考輸出」**。這裡很重要：我之前就是因為模型只輸出思考資訊、沒有正常的 `content`，才需要在 Worker 裡處理相容性。
@@ -234,7 +234,7 @@ https://你的-worker.你的帳號.workers.dev/health
 1. 點進記事本的文字輸入區域。
 2. 按下錄音快捷鍵，直接講話。
 3. 依你選擇的錄音模式，放開按鍵或再次按鍵來停止。
-4. 等待 Groq 辨識、Qwen3 整理，最後看 OpenWhispr 是否自動輸入文字。
+4. 等待 Groq 辨識、Gemma 4 整理，最後看 OpenWhispr 是否自動輸入文字。
 
 如果你只是想先確認語音辨識有沒有成功，可以把「啟用文字整理」暫時關閉。OpenWhispr 仍然可以單獨做語音輸入，這是我覺得它很好用的地方。
 
@@ -244,9 +244,9 @@ https://你的-worker.你的帳號.workers.dev/health
 
 我後來又在 Worker 裡加入一個小功能。
 
-正常情況下，文字整理仍然優先使用 Cloudflare 的 Qwen3；當 Cloudflare 明確回傳**每日免費額度耗盡**的錯誤時，再把同一次文字整理請求轉交 Groq 的文字模型。
+正常情況下，文字整理仍然優先使用你在 Cloudflare 選取的模型；當 Cloudflare 明確回傳**每日免費額度耗盡**的錯誤時，再把同一次文字整理請求轉交 Groq 的文字模型。
 
-備援使用的是 Groq 提供的另一款 Qwen 模型，**不是 Cloudflare 同一個模型**，所以輸出風格有可能稍有差異。
+備援預設使用 Groq 提供的 Qwen3.8，和主要使用的模型可能不同，所以輸出風格也有可能稍有差異。
 
 如果想啟用這個備援：
 
@@ -255,7 +255,7 @@ https://你的-worker.你的帳號.workers.dev/health
 3. 變數名稱填入 `GROQ_API_KEY`。
 4. 值填入自己的 Groq API Key，儲存並部署。
 
-這是選用功能。沒有設定 `GROQ_API_KEY`，一般情況下使用 Cloudflare Qwen3 仍然沒有問題；只是 Cloudflare 額度耗盡後，不會自動備援。
+這是選用功能。沒有設定 `GROQ_API_KEY`，一般情況下使用 Cloudflare 文字整理仍然沒有問題；只是 Cloudflare 額度耗盡後，不會自動備援。
 
 備援只會在 Worker 辨識到特定的**額度耗盡錯誤**時啟用，不是每一個 API 錯誤都會切換。Groq 也有自己的額度與使用限制，不能理解成永久無限免費。
 
@@ -265,7 +265,7 @@ https://你的-worker.你的帳號.workers.dev/health
 - **這不是完全本機的隱私方案。** 錄音會送到 Groq，整理文字會送到 Cloudflare，備援啟用時還可能轉送 Groq 的 LLM。不適合直接拿來處理不希望上雲端的敏感資訊。
 - **不要公開 API Key。** Cloudflare Workers AI Token 填在 OpenWhispr 的 API Key 欄位，由 Worker 直接轉送，不需要放進 `worker.js` 或 GitHub。`CF_ACCOUNT_ID` 是一般 Worker Text 變數；選用的 `GROQ_API_KEY` 才需要設定成 Worker Secret。
 - **中英混說和繁簡轉換仍可能出錯。** 例如 ASR 可能把技術詞聽錯；OpenWhispr 的繁簡轉換也可能把正確的「干擾」變成「幹擾」。遇到這種狀況，可以檢查原始轉錄、文字整理結果與中文書寫設定，不要一股腦地認為是同一個模型的問題。
-- **第一次使用先分段測試。** 先測 Groq 純辨識，再開啟 Qwen3 文字整理，最後才加備援。這樣比較容易排錯。
+- **第一次使用先分段測試。** 先測 Groq 純辨識，再開啟 Cloudflare 文字整理，最後才加備援。這樣比較容易排錯。
 
 ---
 

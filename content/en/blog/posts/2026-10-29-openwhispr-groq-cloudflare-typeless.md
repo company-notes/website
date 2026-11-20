@@ -42,7 +42,7 @@ The whole process is actually pretty simple. It has three parts:
 
 1. **OpenWhispr**: A Windows voice-input tool. It handles recording, keyboard shortcuts, and inserting the final text into the program you're using.
 2. **Groq Whisper**: Converts speech to text. I'm using `whisper-large-v3`; if speed matters more, you can also try `whisper-large-v3-turbo`.
-3. **Cloudflare Workers AI + Qwen3**: Cleans up recognized text, removing filler words and fixing punctuation and obvious slips of the tongue. A Cloudflare Worker sits in the middle so OpenWhispr can call it through an OpenAI-compatible interface.
+3. **Cloudflare Workers AI + Gemma 4**: Cleans up recognized text, removing filler words and fixing punctuation and obvious slips of the tongue. A Cloudflare Worker sits in the middle so OpenWhispr can call it through an OpenAI-compatible interface.
 
 The flow looks like this:
 
@@ -54,7 +54,7 @@ Press the OpenWhispr recording shortcut
                  ↓
       Cloudflare Worker (adapter)
                  ↓
-    Cloudflare Qwen3-30B-A3B-FP8
+    Cloudflare Gemma 4 26B-A4B
   Clean up filler words, punctuation,
          and slips of the tongue
                  ↓
@@ -102,13 +102,13 @@ Interestingly, Groq's Whisper already does some basic text cleanup. If I say som
 
 Now we need to make the recognized text sound more natural.
 
-I'm using Qwen3 on Cloudflare Workers AI:
+Cloudflare [retired Qwen3-30B-A3B-FP8 on November 20, 2026](https://developers.cloudflare.com/changelog/post/2026-11-05-planned-model-deprecations/), so the setup below uses the recommended Gemma 4 26B-A4B instead; you can also select another available Cloudflare text-generation model in OpenWhispr.
 
 ```text
-@cf/qwen/qwen3-30b-a3b-fp8
+@cf/google/gemma-4-26b-a4b-it
 ```
 
-Putting a Workers AI URL directly into OpenWhispr doesn't necessarily work perfectly, especially because Qwen3's thinking output and normal text output have different formats. I actually ran into a case where the API returned HTTP 200 but there was no usable final text.
+Putting a Workers AI URL directly into OpenWhispr doesn't necessarily work perfectly, especially because a model's thinking output and normal text output may have different formats. I actually ran into a case where the API returned HTTP 200 but there was no usable final text.
 
 So I put a **Cloudflare Worker** between them to forward requests and handle response-format compatibility.
 
@@ -149,7 +149,7 @@ Other model names, API URLs, input-size limits, and language hints can be overri
 
 | Optional variable | Default |
 | --- | --- |
-| `CHAT_MODEL` | `@cf/qwen/qwen3-30b-a3b-fp8` |
+| `CHAT_MODEL` | `@cf/google/gemma-4-26b-a4b-it` |
 | `GROQ_CHAT_MODEL` | `qwen/qwen3.8-27b` |
 | `ASR_MODEL` | `@cf/openai/whisper-large-v3-turbo` |
 | `DEFAULT_ASR_LANGUAGE` | `zh` |
@@ -169,7 +169,7 @@ You can check it in your browser at:
 https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev/health
 ```
 
-The code version used for this article is **v2.8**. When configured correctly, `/health` should return JSON with `"ok": true` and `"version": "2.8.0"`. If you see a 503 mentioning `CF_ACCOUNT_ID`, the environment variable is probably missing or invalid.
+When configured correctly, `/health` should return JSON with `"ok": true` and the current code version (for example, `"version": "3.1.0"`). If you see a 503 mentioning `CF_ACCOUNT_ID`, the environment variable is probably missing or invalid.
 
 **Note:** The URL you'll enter in OpenWhispr later must end in `/v1`, but the `/health` test URL does not.
 
@@ -189,15 +189,15 @@ For the provider, choose **Self Hosted**. Despite the name, we're not running th
 | Provider | Self Hosted |
 | Endpoint URL | `https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev/v1` |
 | API Key | Your Cloudflare Workers AI token from earlier (forwarded by the Worker) |
-| Model | `@cf/qwen/qwen3-30b-a3b-fp8` |
+| Model | `@cf/google/gemma-4-26b-a4b-it` |
 | Disable Thinking Output | On |
 
 ![OpenWhispr dictation cleanup and Cloudflare Worker endpoint settings; private URL and API key redacted](../../assets/posts/openwhispr-typeless/02-cloudflare-cleanup.webp)
 
-Then click **Refresh** to fetch the available models. If everything is working, you'll see:
+Then click **Refresh** to fetch the available models. Look for the following model (the original screenshots still show Qwen3, so use the model name here instead):
 
 ```text
-@cf/qwen/qwen3-30b-a3b-fp8
+@cf/google/gemma-4-26b-a4b-it
 ```
 
 Select it and enable **Disable Thinking Output**. This matters. I previously had the model return only thinking information with no normal `content`, which is why the Worker also handles the compatibility issue.
@@ -235,7 +235,7 @@ I'd start with a quick Notepad test:
 1. Click inside the text area in Notepad.
 2. Press the recording shortcut and speak normally.
 3. Release the key or press it again to stop, depending on your recording mode.
-4. Wait for Groq to recognize the speech and Qwen3 to clean it up, then see whether OpenWhispr inserts the final text automatically.
+4. Wait for Groq to recognize the speech and Gemma 4 to clean it up, then see whether OpenWhispr inserts the final text automatically.
 
 If you only want to check whether speech recognition works, temporarily turn off **Enable Text Cleanup**. OpenWhispr can still handle dictation on its own, which is one of the things I really like about it.
 
@@ -245,9 +245,9 @@ When I tried OpenLess, I ran into problems with it not working properly after I 
 
 I later added a little feature to the Worker.
 
-Normally, cleanup uses Qwen3 on Cloudflare first. But when Cloudflare specifically reports that the **daily free allowance has been exhausted**, the Worker can forward that same cleanup request to a Groq text model instead.
+Normally, cleanup uses your selected Cloudflare model first. But when Cloudflare specifically reports that the **daily free allowance has been exhausted**, the Worker can forward that same cleanup request to a Groq text model instead.
 
-The fallback uses a different Qwen model offered by Groq, **not the identical model on Cloudflare**, so its output style may differ a little.
+The fallback uses Groq's Qwen3.8 by default, which may differ from your primary model, so its output style may differ a little.
 
 To enable it:
 
@@ -256,7 +256,7 @@ To enable it:
 3. Name it `GROQ_API_KEY`.
 4. Enter your own Groq API key, save, and deploy.
 
-This is optional. Without `GROQ_API_KEY`, the normal Cloudflare Qwen3 path still works; it just won't automatically fall back when Cloudflare's allowance is used up.
+This is optional. Without `GROQ_API_KEY`, the normal Cloudflare cleanup path still works; it just won't automatically fall back when Cloudflare's allowance is used up.
 
 The Worker only switches for specific **quota-exhaustion errors**, not for every API error. Groq has its own allowances and limits, too, so this doesn't mean unlimited free use forever.
 
@@ -266,7 +266,7 @@ The Worker only switches for specific **quota-exhaustion errors**, not for every
 - **This isn't a fully local privacy setup.** Audio goes to Groq and cleanup text goes to Cloudflare; if the fallback is enabled, text may also be sent to Groq's LLM. It's not suitable for sensitive content you don't want in the cloud.
 - **Don't publish API keys.** The Workers AI token goes in OpenWhispr's API Key field and is forwarded by the Worker, not included in `worker.js` or GitHub. `CF_ACCOUNT_ID` is a regular Worker Text variable; only the optional `GROQ_API_KEY` should be added as a Worker Secret.
 - **Mixed Chinese/English dictation and Traditional/Simplified conversion can still go wrong.** The ASR might mishear technical terms, and OpenWhispr's Chinese conversion might even change a correct character into the wrong one. Check the original transcript, cleaned text, and Chinese writing settings rather than blaming every issue on a single model.
-- **Test one part at a time the first time.** Start with plain Groq transcription, then turn on Qwen3 cleanup, and only then add the fallback. That makes troubleshooting much easier.
+- **Test one part at a time the first time.** Start with plain Groq transcription, then turn on Cloudflare cleanup, and only then add the fallback. That makes troubleshooting much easier.
 
 ---
 
